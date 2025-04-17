@@ -147,5 +147,7 @@ body {
         top: 50%;
         transform: translateY(-50%);
     }
-    #camera-icon { font-size: 3rem; }
+    #camera-icon {
+        display: none; /* Hide camera icon on mobile */
+    }
 }
