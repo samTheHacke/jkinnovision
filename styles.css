@@ -57,8 +57,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
-    min-height: 400px; /* Ensure section height for scroll effect */
+    gap: 10px;
+    min-height: 300px;
 }
 
 .recommendation-image {
@@ -73,7 +73,7 @@ body {
     position: absolute;
     width: 200px;
     opacity: 0.5;
-    transition: left 0.3s, opacity 0.3s, transform 0.3s;
+    transition: left 0.3s, right 0.3s, opacity 0.3s, transform 0.3s, z-index 0s;
 }
 
 .side-image:nth-child(2) {
@@ -134,11 +134,20 @@ body {
     .navbar-logo { height: 30px; }
     .hero-section h1 { font-size: 2rem; }
     .hero-section p { font-size: 1rem; }
-    .recommendation-image { width: 200px; }
-    .side-image { width: 150px; }
-    .side-image:nth-child(2) { left: -180px; }
-    .side-image:nth-child(3) { right: -180px; }
+    .recommendation-image { width: 150px; }
+    .side-image { width: 100px; }
+    .side-image:nth-child(2) { left: -120px; }
+    .side-image:nth-child(3) { right: -120px; }
+    .recommendation-images {
+        gap: 5px;
+        min-height: 200px;
+    }
+    .recommendation-image {
+        position: relative; /* Stack vertically on mobile if needed */
+    }
+    .side-image {
+        position: absolute; /* Keep absolute for convergence */
+        top: 50%; /* Center vertically */
+        transform: translateY(-50%);
+    }
 }
-
-section { padding: 60px 0; }
-h2 { font-size: 2.5rem; margin-bottom: 30px; color: #000000; }
