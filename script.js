@@ -23,3 +23,4 @@ document.getElementById('contactForm').addEventListener('submit', function (e) {
         console.error('EmailJS error:', error);
     });
 });
+

@@ -40,28 +40,64 @@ body {
 }
 
 .hero-images .float-image:nth-child(1) { top: 20%; left: 10%; }
-.hero-images .float-image:nth-child(2) { top: 40%; right: 10%; }
+.hero-images .float-image:nth-child(2) { 
+    top: 40%; 
+    right: 10%; 
+    transform: scaleX(-1); 
+}
 .hero-images .float-image:nth-child(3) { bottom: 20%; left: 30%; }
 
 @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
+    0%, 100% { transform: translateY(0) scaleX(1); }
+    50% { transform: translateY(-20px) scaleX(1); }
+}
+
+.recommendation-images {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    min-height: 400px; /* Ensure section height for scroll effect */
+}
+
+.recommendation-image {
+    width: 300px;
+    animation: pulse 3s infinite;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.side-image {
+    position: absolute;
+    width: 200px;
+    opacity: 0.5;
+    transition: left 0.3s, opacity 0.3s, transform 0.3s;
+}
+
+.side-image:nth-child(2) {
+    left: -250px;
+}
+
+.side-image:nth-child(3) {
+    right: -250px;
 }
 
 .navbar-logo {
     height: 40px;
     margin-right: 10px;
-    border-radius: 50%; /* Makes it circular */
-    border: 2px solid #000000; /* Black border */
-    padding: 2px; /* Slight padding for better look */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
-    transition: all 0.3s ease; /* Smooth hover effect */
+    border-radius: 50%;
+    border: 2px solid #000000;
+    padding: 2px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
 }
 
 .navbar-logo:hover {
-    border-color: #FF6F61; /* Coral accent on hover */
-    transform: scale(1.1); /* Slight zoom */
-    box-shadow: 0 6px 12px rgba(255, 111, 97, 0.3); /* Enhanced shadow */
+    border-color: #FF6F61;
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(255, 111, 97, 0.3);
 }
 
 .bg-black { background-color: #000000; }
@@ -98,6 +134,10 @@ body {
     .navbar-logo { height: 30px; }
     .hero-section h1 { font-size: 2rem; }
     .hero-section p { font-size: 1rem; }
+    .recommendation-image { width: 200px; }
+    .side-image { width: 150px; }
+    .side-image:nth-child(2) { left: -180px; }
+    .side-image:nth-child(3) { right: -180px; }
 }
 
 section { padding: 60px 0; }
