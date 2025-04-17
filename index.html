@@ -48,7 +48,7 @@
                 <i class="fas fa-video fa-2x text-black me-2 float-image"></i>
             </div>
         </div>
-        <i id="camera-icon" class="fas fa-video fa-5x text-gold position-fixed top-0 start-0 ms-4 mt-4"></i>
+        <i id="camera-icon" class="fas fa-video fa-4x text-gold position-fixed top-0 start-0 ms-2 mt-2" style="z-index: 1000;"></i>
     </section>
 
     <!-- Strengths Section -->
@@ -307,15 +307,15 @@
             const maxScroll = document.documentElement.scrollHeight - windowHeight;
             const progress = Math.min(1, scrollPosition / maxScroll);
 
-            const initialSize = 5;
+            const initialSize = 4;
             const finalSize = 2;
             const fontSize = initialSize + (finalSize - initialSize) * progress;
             cameraIcon.style.fontSize = `${fontSize}rem`;
 
             cameraIcon.style.position = 'fixed';
-            cameraIcon.style.top = '10px';
-            cameraIcon.style.left = '10px';
-            cameraIcon.style.zIndex = 20;
+            cameraIcon.style.top = '4px';
+            cameraIcon.style.left = '3px';
+            cameraIcon.style.zIndex = 1000;
             cameraIcon.style.opacity = 1 - (progress * 0.3);
         });
     </script>
