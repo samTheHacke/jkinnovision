@@ -130,6 +130,11 @@ body {
     color: #FF6F61;
 }
 
+#camera-icon {
+    transition: all 0.5s ease;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
 @media (max-width: 576px) {
     .navbar-logo { height: 30px; }
     .hero-section h1 { font-size: 2rem; }
@@ -149,5 +154,8 @@ body {
         position: absolute; /* Keep absolute for convergence */
         top: 50%; /* Center vertically */
         transform: translateY(-50%);
+    }
+    #camera-icon {
+        font-size: 3rem; /* Slightly smaller initial size on mobile */
     }
 }
