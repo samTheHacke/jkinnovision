@@ -41,8 +41,8 @@ body {
     font-size: 2rem;
 }
 
-.hero-images .float-image:nth-child(1) { top: 20%; left: 10%; }
-.hero-images .float-image:nth-child(2) { top: 40%; right: 10%; transform: scaleX(-1); }
+.hero-images .float-image:nth-child(1) { top: 20%; left: 10%; opacity: 40%; }
+.hero-images .float-image:nth-child(2) { top: 40%; right: 10%; transform: scaleX(-1); opacity: 30%; }
 .hero-images .float-image:nth-child(3) { bottom: 20%; left: 30%; }
 
 @keyframes float {
@@ -129,6 +129,17 @@ body {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
+.client-logo {
+    max-height: 100px;
+    width: auto;
+    padding: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.client-logo:hover {
+    transform: scale(1.1);
+}
+
 @media (max-width: 576px) {
     .navbar-logo { height: 30px; }
     .hero-section h1 { font-size: 1.75rem; }
@@ -149,5 +160,8 @@ body {
     }
     #camera-icon {
         display: none; /* Hide camera icon on mobile */
+    }
+    .client-logo {
+        max-height: 80px;
     }
 }
