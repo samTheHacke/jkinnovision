@@ -1,10 +1,9 @@
 body {
-    font-family: 'Arial', sans-serif; /* Fallback font */
+    font-family: 'Montserrat', sans-serif;
     color: #2F2F2F;
     background: #F5F5F5;
     overflow-x: hidden;
     line-height: 1.6;
-    font-family: 'Montserrat', sans-serif; 
 }
 
 #main-nav {
@@ -28,16 +27,16 @@ body {
 }
 
 .hero-section h1 {
-    font-family: 'Montserrat', sans-serif; /* Bold heading font */
+    font-family: 'Montserrat', sans-serif;
     font-size: 2.5rem;
     font-weight: 700;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     z-index: 1;
-    letter-spacing: 0.5px; /* Slight spacing for modern look */
+    letter-spacing: 0.5px;
 }
 
 .hero-section p {
-    font-family: 'Montserrat', sans-serif; /* Lighter body text */
+    font-family: 'Montserrat', sans-serif;
     font-size: 1.25rem;
     font-weight: 400;
     z-index: 1;
@@ -154,7 +153,6 @@ body {
     transform: scale(1.1);
 }
 
-/* Additional font styles for other sections */
 h2, h3, h4 {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
@@ -168,6 +166,38 @@ p, li {
 .navbar-brand, .nav-link {
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
+}
+
+/* Security Slider Styles */
+.security-slider {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    overflow: hidden;
+    height: 400px; /* Fixed height to contain images */
+}
+
+.security-image-container {
+    position: relative;
+    height: 100%;
+}
+
+.security-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 1s ease;
+    border-radius: 25px;
+}
+
+.security-image.active {
+    opacity: 1;
+    z-index: 10;
 }
 
 @media (max-width: 576px) {
@@ -189,12 +219,19 @@ p, li {
         transform: translateY(-50%);
     }
     #camera-icon {
-        display: none; /* Hide camera icon on mobile */
+        display: none;
     }
     .client-logo {
         max-height: 80px;
     }
+    .security-slider {
+        max-width: 100%;
+        height: 200px; /* Adjusted for mobile */
+    }
+    .security-image {
+        width: 100%;
+        height: 100%;
+    }
 }
 
-/* Load Montserrat font from Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');

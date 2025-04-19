@@ -137,6 +137,20 @@
         </div>
     </section>
 
+    
+    <!-- Security in Action Section -->
+    <section id="security-action" class="py-5 bg-light text-center">
+        <div class="container">
+            <h2 class="display-5 mb-5">Security in Action</h2>
+            <p class="fs-5 mb-4">See how JK Innovision catches threats in real-time.</p>
+            <div class="security-slider">
+                <img src="images/security1.png" alt="Thief lifting car" class="security-image" style="z-index: 10;">
+                <img src="images/security2.png" alt="Thief detected" class="security-image" style="z-index: 5;">
+                <img src="images/security3.png" alt="Thief apprehended" class="security-image" style="z-index: 5;">
+            </div>
+        </div>
+    </section>
+
     <!-- Services Section -->
     <section id="services" class="py-5 bg-gray">
         <div class="container">
@@ -176,8 +190,8 @@
         </div>
     </section>
 
-     <!-- Clients Section -->
-     <section id="clients" class="py-5 bg-gray">
+    <!-- Clients Section -->
+    <section id="clients" class="py-5 bg-gray">
         <div class="container">
             <h2 class="display-5 text-center mb-5">Our Valued Clients</h2>
             <div class="row row-cols-2 row-cols-md-4 g-4 justify-content-center">
@@ -187,12 +201,6 @@
                 <div class="col text-center">
                     <img src="images/client2.png" alt="Client 2 Logo" class="client-logo img-fluid">
                 </div>
-                <!-- <div class="col text-center">
-                    <img src="images/client3.png" alt="Client 3 Logo" class="client-logo img-fluid">
-                </div>
-                <div class="col text-center">
-                    <img src="images/client4.png" alt="Client 4 Logo" class="client-logo img-fluid">
-                </div> -->
             </div>
         </div>
     </section>
@@ -209,6 +217,7 @@
             </ul>
         </div>
     </section>
+
 
     <!-- Contact Section -->
     <section id="contact" class="py-5">
@@ -338,5 +347,20 @@
             cameraIcon.style.left = '3px';
             cameraIcon.style.zIndex = 1000;
             cameraIcon.style.opacity = 1 - (progress * 0.3);
+        });
+
+        // Security slider animation
+        document.addEventListener('DOMContentLoaded', () => {
+            const securityImages = document.querySelectorAll('.security-image');
+            let currentIndex = 0;
+
+            function showNextImage() {
+                securityImages.forEach(img => img.classList.remove('active'));
+                securityImages[currentIndex].classList.add('active');
+                currentIndex = (currentIndex + 1) % securityImages.length;
+            }
+
+            showNextImage();
+            setInterval(showNextImage, 2000);
         });
     </script>
