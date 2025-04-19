@@ -80,11 +80,16 @@ body {
     position: absolute;
     width: 200px;
     opacity: 0.5;
-    transition: left 0.3s, right 0.3s, opacity 0.3s, transform 0.3s, z-index 0s;
+    transition: all 0.5s ease;
 }
 
-.side-image:nth-child(2) { left: -250px; }
-.side-image:nth-child(3) { right: -250px; }
+.side-image#recommendation-image-side-1 {
+    left: -250px;
+}
+
+.side-image#recommendation-image-side-2 {
+    right: -250px;
+}
 
 .navbar-logo {
     height: 40px;
@@ -175,7 +180,7 @@ p, li {
     max-width: 600px;
     margin: 0 auto;
     overflow: hidden;
-    height: 400px; /* Fixed height to contain images */
+    height: 400px;
 }
 
 .security-image-container {
@@ -192,7 +197,6 @@ p, li {
     left: 0;
     opacity: 0;
     transition: opacity 1s ease;
-    border-radius: 25px;
 }
 
 .security-image.active {
@@ -206,8 +210,8 @@ p, li {
     .hero-section p { font-size: 1rem; }
     .recommendation-image { width: 150px; }
     .side-image { width: 100px; }
-    .side-image:nth-child(2) { left: -120px; }
-    .side-image:nth-child(3) { right: -120px; }
+    .side-image#recommendation-image-side-1 { left: -120px; }
+    .side-image#recommendation-image-side-2 { right: -120px; }
     .recommendation-images {
         gap: 10px;
         min-height: 200px;
@@ -226,7 +230,7 @@ p, li {
     }
     .security-slider {
         max-width: 100%;
-        height: 200px; /* Adjusted for mobile */
+        height: 200px;
     }
     .security-image {
         width: 100%;

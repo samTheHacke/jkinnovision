@@ -125,17 +125,17 @@
         </div>
     </section>
 
-    <!-- Recommendation Section -->
-    <section id="recommendation" class="py-5 bg-gray text-center">
-        <div class="container">
-            <h2 class="display-5 mb-5">Recommendation</h2>
-            <div class="recommendation-images position-relative">
-                <img src="images/home.png" alt="Home Recommendation" id="recommendation-image-main" class="recommendation-image" style="z-index: 10;">
-                <img src="images/business.png" alt="Business Recommendation" id="recommendation-image-side" class="recommendation-image side-image" style="z-index: 5;">
-                <img src="images/industrial.png" alt="Industrial Recommendation" id="recommendation-image-side" class="recommendation-image side-image" style="z-index: 5;">
-            </div>
+   <!-- Recommendation Section -->
+   <section id="recommendation" class="py-5 bg-gray text-center">
+    <div class="container">
+        <h2 class="display-5 mb-5">Recommendation</h2>
+        <div class="recommendation-images position-relative">
+            <img src="images/home.png" alt="Home Recommendation" id="recommendation-image-main" class="recommendation-image" style="z-index: 10;">
+            <img src="images/business.png" alt="Business Recommendation" id="recommendation-image-side-1" class="recommendation-image side-image" style="z-index: 5;">
+            <img src="images/industrial.png" alt="Industrial Recommendation" id="recommendation-image-side-2" class="recommendation-image side-image" style="z-index: 5;">
         </div>
-    </section>
+    </div>
+</section>
 
     
     <!-- Security in Action Section -->
@@ -273,7 +273,7 @@
         function showRecommendation() {
             const property = document.getElementById('property-type').value;
             const mainImage = document.getElementById('recommendation-image-main');
-            const sideImages = document.querySelectorAll('#recommendation-image-side');
+            const sideImages = document.querySelectorAll('.side-image');
             let mainSrc = 'images/home.png';
 
             if (property === 'business') {
@@ -296,7 +296,7 @@
                 if (index === 0) {
                     img.style.left = '-250px';
                 } else {
-                    img.style.right = '250px';
+                    img.style.right = '-250px';
                 }
                 img.offsetHeight;
                 setTimeout(() => {
@@ -315,13 +315,13 @@
             const isMobile = window.innerWidth <= 576;
 
             sideImages.forEach((img, index) => {
-                const initialOffset = index === 0 ? -250 : (isMobile ? -120 : 250);
-                const finalOffset = 50;
+                const initialOffset = isMobile ? -120 : -250;
+                const finalOffset = isMobile ? 20 : 50;
                 const offset = initialOffset + (finalOffset - initialOffset) * progress;
                 if (index === 0) {
                     img.style.left = `${offset}px`;
                 } else {
-                    img.style.right = `${-offset}px`;
+                    img.style.right = `${offset}px`;
                 }
                 img.style.opacity = 0.5 + (0.5 * progress);
                 img.style.transform = `translateY(${-(rect.top / 20)}px)`;
