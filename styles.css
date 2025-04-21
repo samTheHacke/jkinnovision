@@ -205,7 +205,8 @@ p, li {
     z-index: 10;
 }
 
-/* About Card Styles */
+
+/* About Card Styles with Animation */
 .about-card {
     background: #FFFFFF;
     border: 1px solid #E0E0E0;
@@ -213,7 +214,14 @@ p, li {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     padding: 2rem;
     margin-bottom: 2rem;
-    transition: box-shadow 0.3s ease;
+    transition: box-shadow 0.3s ease, transform 0.5s ease, opacity 0.5s ease;
+    opacity: 0; /* Initially hidden */
+    transform: translateX(-100px); /* Start off-screen to the left */
+}
+
+.about-card.visible {
+    opacity: 1;
+    transform: translateX(0); /* Slide in to original position */
 }
 
 .about-card:hover {
@@ -302,6 +310,7 @@ p, li {
     }
     .about-card {
         padding: 1rem;
+        transform: translateX(-50px); /* Adjusted for mobile */
     }
     .strength-card {
         padding: 1rem;

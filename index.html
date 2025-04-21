@@ -364,7 +364,6 @@
             document.getElementById('recommendation-image-main').style.zIndex = 10;
         });
 
-        //camera icon 
         const cameraIcon = document.getElementById('camera-icon');
         window.addEventListener('scroll', () => {
             const scrollPosition = window.scrollY;
@@ -399,9 +398,11 @@
             setInterval(showNextImage, 2000); // Change image every 2 seconds
         });
 
-        // Card Animation on Scroll
+
+        // Card and About Card Animation on Scroll
         document.addEventListener('DOMContentLoaded', () => {
             const cards = document.querySelectorAll('.strength-card');
+            const aboutCard = document.querySelector('.about-card');
             const observer = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -410,11 +411,12 @@
                     }
                 });
             }, {
-                threshold: 0.1 // Trigger when 10% of the card is visible
+                threshold: 0.1 // Trigger when 10% of the element is visible
             });
 
             cards.forEach(card => {
                 observer.observe(card);
             });
+            observer.observe(aboutCard);
         });
     </script>
