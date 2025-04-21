@@ -10,6 +10,76 @@ body {
     transition: top 0.3s ease;
 }
 
+/* Banner Styles */
+.banner {
+    background-color: #000000;
+    padding: 10px 0;
+    color: #FFFFFF;
+    font-size: 0.9rem;
+}
+
+.banner .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.banner-logo {
+    height: 100px;
+    width: 200px;
+    border-radius: 10px;
+    /* border: 2px solid #ffffff; */
+    padding: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.banner-logo:hover {
+    border-color: #E65B50;
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(230, 91, 80, 0.4);
+}
+
+.contact-info a {
+    color: #FFFFFF;
+    margin: 0 5px;
+}
+
+.contact-info a:hover {
+    color: #FF6F61;
+    text-decoration: underline;
+}
+
+/* Contact Card Styles */
+.contact-card {
+    background: #FFFFFF;
+    border: 1px solid #E0E0E0;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    padding: 1.5rem;
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contact-card form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.contact-card .form-control {
+    border-radius: 5px;
+    height: 38px; /* Reduced height */
+    font-size: 0.9rem; /* Smaller text */
+}
+
+.contact-card .btn-coral {
+    margin-top: 0.75rem;
+    padding: 0.5rem;
+    font-size: 0.9rem; /* Smaller button text */
+}
+
 .hero-section {
     background: linear-gradient(45deg, #000000, #333333, #FF6F61);
     background-size: 200% 200%;
@@ -110,7 +180,7 @@ body {
 .bg-black { background-color: #000000; }
 .bg-gray { background-color: #F5F5F5; }
 .bg-parallax {
-    background: linear-gradient(to bottom, #000000, #FFD166);
+    background: linear-gradient(to bottom, #ffffff, #e0d3e0, #ddf7dd);
     background-attachment: fixed;
     background-size: cover;
     position: relative;
@@ -196,6 +266,14 @@ p, li {
 .hero-bg-container .container {
     position: relative;
     z-index: 1;
+}
+
+@media (max-width: 576px) {
+    .hero-bg-container {
+        min-height: 50vh; /* Reduced height for mobile */
+        background-size: 150% auto; /* Larger image size */
+        background-position: center;
+    }
 }
 
 /* Security Slider Styles */
@@ -405,7 +483,12 @@ p, li {
         background-size: contain; /* Adjust for mobile to avoid stretching */
     }
     .hero-bg-container {
-        background-size: contain; /* Adjust for mobile to avoid stretching */
+        background-size: 150% auto; /* Larger image size */
+        min-height: 50vh; /* Fixed height for stability */
+    }
+    .contact-card {
+        padding: 1rem;
+        max-width: 100%;
     }
 }
 
