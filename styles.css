@@ -220,7 +220,7 @@ p, li {
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
 }
 
-/* Strength Card Styles */
+/* Strength Card Styles with Animation */
 .strength-card {
     background: #F0F0F0;
     border: 1px solid #E0E0E0;
@@ -228,12 +228,19 @@ p, li {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 1.5rem;
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.5s ease;
     height: 250px; /* Fixed height */
     display: flex;
     flex-direction: column;
     justify-content: center;
     overflow: hidden; /* Prevents content overflow */
+    opacity: 0; /* Initially hidden */
+    transform: translateY(50px); /* Start below position */
+}
+
+.strength-card.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .strength-card:hover {
@@ -299,6 +306,9 @@ p, li {
     .strength-card {
         padding: 1rem;
         height: 220px; /* Adjusted fixed height for mobile */
+    }
+    #about {
+        padding: 2rem 0;
     }
     #messageSentModal .modal-body {
         padding: 1.5rem;
