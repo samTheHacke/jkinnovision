@@ -287,6 +287,19 @@ p, li {
     font-size: 0.9rem;
 }
 
+/* About Background Styles */
+.about-bg-container {
+    background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url('images/cctv1.jpg') no-repeat center center;
+    background-size: cover;
+    background-blend-mode: overlay;
+    position: relative;
+}
+
+.about-bg-container .container {
+    position: relative;
+    z-index: 1;
+}
+
 /* Popup Modal Styles */
 #messageSentModal .modal-content {
     border: none;
@@ -355,6 +368,9 @@ p, li {
     }
     .google-icon {
         font-size: 1.2rem; /* Smaller on mobile */
+    }
+    .about-bg-container {
+        background-size: contain; /* Adjust for mobile to avoid stretching */
     }
 }
 
