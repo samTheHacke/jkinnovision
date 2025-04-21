@@ -139,20 +139,56 @@
         </div>
     </section>
 
-        <!-- Security in Action Section -->
-        <section id="security-action" class="py-5 bg-light text-center">
-            <div class="container">
-                <h2 class="display-5 mb-5">Security in Action</h2>
-                <p class="fs-5 mb-4">See how JK Innovision catches threats in real-time.</p>
-                <div class="security-slider">
-                    <div class="security-image-container">
-                        <img src="images/security1.png" alt="Thief lifting car" class="security-image" style="z-index: 10;">
-                        <img src="images/security2.png" alt="Thief detected" class="security-image" style="z-index: 5;">
-                        <img src="images/security3.png" alt="Thief apprehended" class="security-image" style="z-index: 5;">
+    <!-- Security in Action Section -->
+    <section id="security-action" class="py-5 bg-light text-center">
+        <div class="container">
+            <h2 class="display-5 mb-5">Security in Action</h2>
+            <p class="fs-5 mb-4">See how JK Innovision catches threats in real-time.</p>
+            <div class="security-slider">
+                <div class="security-image-container">
+                    <img src="images/security1.png" alt="Thief lifting car" class="security-image" style="z-index: 10;">
+                    <img src="images/security2.png" alt="Thief detected" class="security-image" style="z-index: 5;">
+                    <img src="images/security3.png" alt="Thief apprehended" class="security-image" style="z-index: 5;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-5 bg-gray">
+        <div class="container text-center">
+            <h2 class="display-5 mb-5">Testimonial Stories of Satisfied Customers</h2>
+            <p class="fs-5 mb-4">Rated <strong>Excellent</strong> <i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i> based on 137 Google reviews</p>
+            <div class="testimonials-carousel">
+                <div class="row row-cols-1 g-4">
+                    <div class="col">
+                        <div class="strength-card">
+                            <i class="fab fa-google text-muted google-icon"></i>
+                            <div class="testimonial-content">
+                                <p class="fs-6 text-muted mb-1">Akshay Khirasagar - 2024-12-11</p>
+                                <div class="rating mb-2">
+                                    <i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i>
+                                </div>
+                                <p class="fs-6">"They have installed 7 cameras in my home the camera clarity is good and there service is very good I advise to those who all are planning for a new connection best choice is Yendra Techno Solution. Even apart from cameras they have many..."</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="strength-card">
+                            <i class="fab fa-google text-muted google-icon"></i>
+                            <div class="testimonial-content">
+                                <p class="fs-6 text-muted mb-1">Another Customer - 2024-12-10</p>
+                                <div class="rating mb-2">
+                                    <i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-half-alt text-warning"></i>
+                                </div>
+                                <p class="fs-6">"Great service and quick installation. The team was professional and the security system works flawlessly. Highly recommend!"</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
     <!-- Services Section -->
     <section id="services" class="py-5 bg-gray">
@@ -233,7 +269,6 @@
         </div>
     </section>
 
-
     <!-- Contact Section -->
     <section id="contact" class="py-5">
         <div class="container">
@@ -246,6 +281,10 @@
                 <div class="mb-4">
                     <label for="email" class="form-label fs-5">Email</label>
                     <input type="email" class="form-control fs-5 py-2" id="email" required>
+                </div>
+                <div class="mb-4">
+                    <label for="phone" class="form-label fs-5">Phone</label>
+                    <input type="phone" class="form-control fs-5 py-2" id="phone" required>
                 </div>
                 <div class="mb-4">
                     <label for="message" class="form-label fs-5">Message</label>
@@ -398,6 +437,22 @@
             setInterval(showNextImage, 2000); // Change image every 2 seconds
         });
 
+        // Testimonials carousel
+        document.addEventListener('DOMContentLoaded', () => {
+            const testimonialCards = document.querySelectorAll('.testimonials-carousel .strength-card');
+            let currentIndex = 0;
+
+            function showNextTestimonial() {
+                testimonialCards.forEach(card => card.style.display = 'none');
+                testimonialCards[currentIndex].style.display = 'block';
+                currentIndex = (currentIndex + 1) % testimonialCards.length;
+            }
+
+            // Show the first card initially
+            showNextTestimonial();
+            // Cycle every 5 seconds
+            setInterval(showNextTestimonial, 5000);
+        });
 
         // Card and About Card Animation on Scroll
         document.addEventListener('DOMContentLoaded', () => {
@@ -420,3 +475,5 @@
             observer.observe(aboutCard);
         });
     </script>
+</body>
+</html>

@@ -205,7 +205,6 @@ p, li {
     z-index: 10;
 }
 
-
 /* About Card Styles with Animation */
 .about-card {
     background: #FFFFFF;
@@ -244,6 +243,7 @@ p, li {
     overflow: hidden; /* Prevents content overflow */
     opacity: 0; /* Initially hidden */
     transform: translateY(50px); /* Start below position */
+    position: relative; /* For positioning the Google icon */
 }
 
 .strength-card.visible {
@@ -254,6 +254,37 @@ p, li {
 .strength-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Google Icon Styles */
+.google-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5rem;
+    color: #4285F4; /* Google blue */
+}
+
+/* Testimonial Carousel Styles */
+.testimonials-carousel {
+    position: relative;
+    overflow: hidden;
+}
+
+.testimonials-carousel .strength-card {
+    display: none; /* Hide all cards initially */
+}
+
+.testimonials-carousel .strength-card:first-child {
+    display: block; /* Show the first card by default */
+}
+
+.testimonial-content .rating {
+    margin-bottom: 0.5rem;
+}
+
+.testimonial-content .text-muted {
+    font-size: 0.9rem;
 }
 
 /* Popup Modal Styles */
@@ -321,6 +352,9 @@ p, li {
     }
     #messageSentModal .modal-body {
         padding: 1.5rem;
+    }
+    .google-icon {
+        font-size: 1.2rem; /* Smaller on mobile */
     }
 }
 
