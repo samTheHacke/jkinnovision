@@ -241,6 +241,26 @@ p, li {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
+/* Popup Modal Styles */
+#messageSentModal .modal-content {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+#messageSentModal .modal-header {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+#messageSentModal .modal-body {
+    padding: 2rem;
+}
+
+#messageSentModal .btn-close {
+    color: #FF6F61;
+}
+
 @media (max-width: 576px) {
     .navbar-logo { height: 30px; }
     .hero-section h1 { font-size: 1.75rem; }
@@ -279,6 +299,9 @@ p, li {
     .strength-card {
         padding: 1rem;
         height: 220px; /* Adjusted fixed height for mobile */
+    }
+    #messageSentModal .modal-body {
+        padding: 1.5rem;
     }
 }
 
