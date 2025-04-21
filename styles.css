@@ -484,7 +484,7 @@ p, li {
     }
     .hero-bg-container {
         background-size: 200% auto; /* Larger image size */
-        min-height: 50vh; /* Fixed height for stability */
+        min-height: 60vh; /* Fixed height for stability */
     }
     .contact-card {
         padding: 1rem;
