@@ -51,7 +51,7 @@ body {
 
 .hero-images .float-image:nth-child(1) { top: 20%; left: 10%; opacity: 40%; }
 .hero-images .float-image:nth-child(2) { top: 40%; right: 10%; transform: scaleX(-1); opacity: 30%; }
-.hero-images .float-image:nth-child(3) { bottom: 20%; left: 30%; }
+.hero-images .float-image:nth-child(3) { bottom: 20%; left: 30%; opacity: 20%; }
 
 @keyframes float {
     0%, 100% { transform: translateY(0) scaleX(1); }
@@ -173,6 +173,31 @@ p, li {
     font-weight: 600;
 }
 
+.text-super-white {
+    color: #FFFFFF !important; /* Pure white */
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6); /* Enhanced shadow for readability */
+}
+
+.fw-extra-bold {
+    font-weight: 900 !important; /* Extra bold for h1 */
+}
+
+.fw-medium {
+    font-weight: 600 !important; /* Medium bold for p */
+}
+
+/* Hero Background Styles */
+.hero-bg-container {
+    background: linear-gradient(rgba(30, 144, 255, 0.7), rgba(128, 0, 128, 0.7)), url('images/cctv2.jpg') no-repeat center center;
+    background-size: cover, cover;
+    background-blend-mode: overlay;
+}
+
+.hero-bg-container .container {
+    position: relative;
+    z-index: 1;
+}
+
 /* Security Slider Styles */
 .security-slider {
     position: relative;
@@ -289,7 +314,7 @@ p, li {
 
 /* About Background Styles */
 .about-bg-container {
-    background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url('images/cctv1.jpg') no-repeat center center;
+    background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url('../images/cctv') no-repeat center center;
     background-size: cover;
     background-blend-mode: overlay;
     position: relative;
@@ -317,8 +342,15 @@ p, li {
 }
 
 #messageSentModal .btn-close {
-    color: #FF6F61;
+    color: #800080;
 }
+
+.text-blue { color: #1E90FF; }
+.text-purple { color: #800080; }
+.text-green { color: #32CD32; }
+.text-red { color: #FF4500; }
+.text-orange { color: #FFA500; }
+.text-yellow { color: #FFFF00; }
 
 @media (max-width: 576px) {
     .navbar-logo { height: 30px; }
@@ -370,6 +402,9 @@ p, li {
         font-size: 1.2rem; /* Smaller on mobile */
     }
     .about-bg-container {
+        background-size: contain; /* Adjust for mobile to avoid stretching */
+    }
+    .hero-bg-container {
         background-size: contain; /* Adjust for mobile to avoid stretching */
     }
 }
