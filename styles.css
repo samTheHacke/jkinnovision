@@ -80,6 +80,41 @@ body {
     font-size: 0.9rem; /* Smaller button text */
 }
 
+/* Call Icon Styles */
+.call-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #32CD32;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    z-index: 1000;
+    display: none; /* Hidden by default, shown only on mobile */
+}
+
+.call-icon:hover {
+    transform: scale(1.1);
+    background-color: #28A745;
+}
+
+.call-icon i {
+    color: #FFFFFF;
+}
+
+@media (max-width: 576px) {
+    .call-icon {
+        display: flex; /* Show only on mobile */
+    }
+}
+
+/* Hero Section Styles */
 .hero-section {
     background: linear-gradient(45deg, #000000, #333333, #FF6F61);
     background-size: 200% 200%;
@@ -212,11 +247,6 @@ body {
     color: #FF6F61;
 }
 
-#camera-icon {
-    transition: all 0.5s ease;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-
 .client-logo {
     max-height: 100px;
     width: auto;
@@ -268,14 +298,6 @@ p, li {
     z-index: 1;
 }
 
-@media (max-width: 576px) {
-    .hero-bg-container {
-        min-height: 50vh; /* Reduced height for mobile */
-        background-size: 150% auto; /* Larger image size */
-        background-position: center;
-    }
-}
-
 /* Security Slider Styles */
 .security-slider {
     position: relative;
@@ -319,6 +341,34 @@ p, li {
     transition: box-shadow 0.3s ease, transform 0.5s ease, opacity 0.5s ease;
     opacity: 0; /* Initially hidden */
     transform: translateX(-100px); /* Start off-screen to the left */
+}
+
+.about-story-card {
+    text-align: left;
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+}
+
+.story-text {
+    flex: 1;
+}
+
+.story-logo {
+    flex-shrink: 0;
+}
+
+.jk-logo {
+    height: 300px;
+    width: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.jk-logo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(230, 91, 80, 0.4);
 }
 
 .about-card.visible {
@@ -429,6 +479,7 @@ p, li {
 .text-red { color: #FF4500; }
 .text-orange { color: #FFA500; }
 .text-yellow { color: #FFFF00; }
+.text-gold { color: #FFD700; }
 
 @media (max-width: 576px) {
     .navbar-logo { height: 30px; }
@@ -448,9 +499,6 @@ p, li {
         top: 50%;
         transform: translateY(-50%);
     }
-    #camera-icon {
-        display: none;
-    }
     .client-logo {
         max-height: 80px;
     }
@@ -465,6 +513,17 @@ p, li {
     .about-card {
         padding: 1rem;
         transform: translateX(-50px); /* Adjusted for mobile */
+    }
+    .about-story-card {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .story-logo {
+        text-align: center;
+    }
+    .yendra-logo {
+        height: 150px;
+        width: auto;
     }
     .strength-card {
         padding: 1rem;
@@ -489,6 +548,15 @@ p, li {
     .contact-card {
         padding: 1rem;
         max-width: 100%;
+    }
+    .call-icon {
+        bottom: 10px;
+        right: 10px;
+        width: 40px;
+        height: 40px;
+    }
+    .call-icon i {
+        font-size: 1.5rem;
     }
 }
 
