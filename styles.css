@@ -28,7 +28,6 @@ body {
     height: 100px;
     width: 200px;
     border-radius: 10px;
-    /* border: 2px solid #ffffff; */
     padding: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
@@ -50,6 +49,10 @@ body {
     text-decoration: underline;
 }
 
+.contact-info i {
+    font-size: 1rem;
+}
+
 /* Contact Card Styles */
 .contact-card {
     background: #FFFFFF;
@@ -57,9 +60,12 @@ body {
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     padding: 1.5rem;
-    max-width: 400px;
     margin: 0 auto;
     text-align: center;
+}
+
+.contact-card .row {
+    align-items: stretch;
 }
 
 .contact-card form {
@@ -70,14 +76,30 @@ body {
 
 .contact-card .form-control {
     border-radius: 5px;
-    height: 38px; /* Reduced height */
-    font-size: 0.9rem; /* Smaller text */
+    height: 38px;
+    font-size: 0.9rem;
 }
 
 .contact-card .btn-coral {
     margin-top: 0.75rem;
     padding: 0.5rem;
-    font-size: 0.9rem; /* Smaller button text */
+    font-size: 0.9rem;
+}
+
+.contact-card .col-md-6 {
+    padding: 0 0.75rem;
+}
+
+.contact-card .col-md-6:last-child {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@media (min-width: 768px) {
+    .contact-card .col-md-6:last-child p {
+        margin-bottom: 0;
+    }
 }
 
 /* Call Icon Styles */
@@ -96,7 +118,6 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, background-color 0.3s ease;
     z-index: 1000;
-    display: none; /* Hidden by default, shown only on mobile */
 }
 
 .call-icon:hover {
@@ -110,7 +131,7 @@ body {
 
 @media (max-width: 576px) {
     .call-icon {
-        display: flex; /* Show only on mobile */
+        display: flex;
     }
 }
 
@@ -274,16 +295,16 @@ p, li {
 }
 
 .text-super-white {
-    color: #FFFFFF !important; /* Pure white */
-    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6); /* Enhanced shadow for readability */
+    color: #FFFFFF !important;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
 }
 
 .fw-extra-bold {
-    font-weight: 900 !important; /* Extra bold for h1 */
+    font-weight: 900 !important;
 }
 
 .fw-medium {
-    font-weight: 600 !important; /* Medium bold for p */
+    font-weight: 600 !important;
 }
 
 /* Hero Background Styles */
@@ -339,8 +360,16 @@ p, li {
     padding: 2rem;
     margin-bottom: 2rem;
     transition: box-shadow 0.3s ease, transform 0.5s ease, opacity 0.5s ease;
-    opacity: 0; /* Initially hidden */
-    transform: translateX(-100px); /* Start off-screen to the left */
+    opacity: 0;
+    transform: translateX(-100px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 300px; /* Ensures consistent height */
+}
+
+.uniform-height {
+    height: 300px; /* Fixed height for uniformity */
 }
 
 .about-story-card {
@@ -373,11 +402,27 @@ p, li {
 
 .about-card.visible {
     opacity: 1;
-    transform: translateX(0); /* Slide in to original position */
+    transform: translateX(0);
 }
 
 .about-card:hover {
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+@media (max-width: 576px) {
+    .about-story-card {
+        flex-direction: column;
+        align-items: center;
+    }
+    .story-logo {
+        margin-bottom: 1rem;
+    }
+    .about-card {
+        min-height: 250px; /* Adjusted for mobile */
+    }
+    .uniform-height {
+        height: 250px; /* Adjusted for mobile */
+    }
 }
 
 /* Strength Card Styles with Animation */
@@ -389,14 +434,14 @@ p, li {
     padding: 1.5rem;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.5s ease;
-    height: 250px; /* Fixed height */
+    height: 250px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    overflow: hidden; /* Prevents content overflow */
-    opacity: 0; /* Initially hidden */
-    transform: translateY(50px); /* Start below position */
-    position: relative; /* For positioning the Google icon */
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(50px);
+    position: relative;
 }
 
 .strength-card.visible {
@@ -415,7 +460,7 @@ p, li {
     top: 10px;
     right: 10px;
     font-size: 1.5rem;
-    color: #4285F4; /* Google blue */
+    color: #4285F4;
 }
 
 /* Testimonial Carousel Styles */
@@ -425,11 +470,11 @@ p, li {
 }
 
 .testimonials-carousel .strength-card {
-    display: none; /* Hide all cards initially */
+    display: none;
 }
 
 .testimonials-carousel .strength-card:first-child {
-    display: block; /* Show the first card by default */
+    display: block;
 }
 
 .testimonial-content .rating {
@@ -480,6 +525,7 @@ p, li {
 .text-orange { color: #FFA500; }
 .text-yellow { color: #FFFF00; }
 .text-gold { color: #FFD700; }
+.text-super-whites { color: #FFFFFF; }
 
 @media (max-width: 576px) {
     .navbar-logo { height: 30px; }
@@ -512,22 +558,11 @@ p, li {
     }
     .about-card {
         padding: 1rem;
-        transform: translateX(-50px); /* Adjusted for mobile */
-    }
-    .about-story-card {
-        flex-direction: column;
-        gap: 1rem;
-    }
-    .story-logo {
-        text-align: center;
-    }
-    .yendra-logo {
-        height: 150px;
-        width: auto;
+        transform: translateX(-50px);
     }
     .strength-card {
         padding: 1rem;
-        height: 220px; /* Adjusted fixed height for mobile */
+        height: 220px;
     }
     #about {
         padding: 2rem 0;
@@ -536,14 +571,14 @@ p, li {
         padding: 1.5rem;
     }
     .google-icon {
-        font-size: 1.2rem; /* Smaller on mobile */
+        font-size: 1.2rem;
     }
     .about-bg-container {
-        background-size: contain; /* Adjust for mobile to avoid stretching */
+        background-size: contain;
     }
     .hero-bg-container {
-        background-size: 350% auto; /* Larger image size */
-        min-height: 60vh; /* Fixed height for stability */
+        background-size: 350% auto;
+        min-height: 60vh;
     }
     .contact-card {
         padding: 1rem;
