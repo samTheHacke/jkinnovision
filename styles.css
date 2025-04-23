@@ -368,11 +368,11 @@ p, li {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-height: 300px; /* Ensures consistent height */
+    min-height: 300px;
 }
 
 .uniform-height {
-    height: 300px; /* Fixed height for uniformity */
+    height: 300px;
 }
 
 .about-story-card {
@@ -380,16 +380,18 @@ p, li {
     display: flex;
     align-items: flex-start;
     gap: 2rem;
-    flex-wrap: nowrap; /* Prevents wrapping on smaller screens */
+    flex-wrap: wrap; /* Allows responsive wrapping */
 }
+
+.story-logo img.jk-logo {
+    max-width: 150px;
+    height: auto;
+}
+
 
 .story-text {
     flex: 1;
-    min-width: 0; /* Prevents overflow */
-}
-
-.story-logo {
-    flex-shrink: 0;
+    min-width: 0;
 }
 
 .jk-logo {
@@ -416,17 +418,25 @@ p, li {
 
 @media (max-width: 576px) {
     .about-story-card {
-        flex-direction: column;
-        align-items: center;
+        flex-direction: row; /* Keep side-by-side */
+        align-items: flex-start;
+        gap: 1rem; /* Reduced gap for mobile */
+    }
+    .story-text {
+        flex: 2; /* Give more space to text */
     }
     .story-logo {
-        margin-bottom: 1rem;
+        flex: 1; /* Reduce logo space */
+    }
+    .jk-logo {
+        height: 150px; /* Smaller logo on mobile */
+        width: auto;
     }
     .about-card {
-        min-height: 250px; /* Adjusted for mobile */
+        min-height: 200px;
     }
     .uniform-height {
-        height: 250px; /* Adjusted for mobile */
+        height: 200px;
     }
 }
 
