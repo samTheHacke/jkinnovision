@@ -438,6 +438,9 @@ p, li {
     .uniform-height {
         height: 200px;
     }
+    .hide-tagline-desktop{
+        display: none;
+    }
 }
 
 /* Strength Card Styles with Animation */
