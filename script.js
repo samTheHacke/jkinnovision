@@ -1,5 +1,5 @@
 (function(){
-    emailjs.init("mvUR1At4mqgzKEnk7"); // Your EmailJS User ID
+    emailjs.init("mvUR1At4mqgzKEnk7");
 })();
 
 document.getElementById('contactForm').addEventListener('submit', function (e) {
@@ -9,13 +9,12 @@ document.getElementById('contactForm').addEventListener('submit', function (e) {
     const email = document.getElementById('email').value;
     const phone = document.getElementById('phone').value;
     const message = document.getElementById('message').value;
-    console.log("email sending");
-    debugger;
+
 
     emailjs.send("service_tbk4v9g", "template_bxkc6ri", {
         name: name,
         email: email,
-        message: message + phone
+        message: " message from customer is : " + message + " phone number of customer is: "+ phone
     })
     .then(function(response) {
         // Show the success popup

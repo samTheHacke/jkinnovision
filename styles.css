@@ -388,7 +388,6 @@ p, li {
     height: auto;
 }
 
-
 .story-text {
     flex: 1;
     min-width: 0;
@@ -418,19 +417,26 @@ p, li {
 
 @media (max-width: 576px) {
     .about-story-card {
-        flex-direction: row; /* Keep side-by-side */
-        align-items: flex-start;
+        flex-direction: column; /* Stack elements vertically */
+        align-items: center; /* Center horizontally */
+        justify-content: center; /* Center vertically if needed */
         gap: 1rem; /* Reduced gap for mobile */
+        text-align: center; /* Center text for better appearance */
     }
     .story-text {
-        flex: 2; /* Give more space to text */
+        flex: none; /* Remove flex ratio since we're stacking */
+        width: 100%; /* Ensure text takes full width */
     }
     .story-logo {
-        flex: 1; /* Reduce logo space */
+        flex: none; /* Remove flex ratio */
+        width: 100%; /* Ensure logo container takes full width */
+        display: flex; /* Use flex to center the logo */
+        justify-content: center; /* Center logo horizontally */
     }
     .jk-logo {
         height: 150px; /* Smaller logo on mobile */
         width: auto;
+        max-width: 150px; /* Ensure it doesn't exceed this width */
     }
     .about-card {
         min-height: 200px;
@@ -438,7 +444,7 @@ p, li {
     .uniform-height {
         height: 200px;
     }
-    .hide-tagline-desktop{
+    .hide-tagline-desktop {
         display: none;
     }
 }
