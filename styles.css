@@ -442,7 +442,7 @@ p, li {
         min-height: 200px;
     }
     .uniform-height {
-        height: 200px;
+        min-height: 200px;
     }
     .hide-tagline-desktop {
         display: none;
