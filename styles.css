@@ -12,48 +12,119 @@ body {
 
 /* Banner Styles */
 .banner {
-    background-color: #000000;
-    padding: 10px 0;
-    color: #FFFFFF;
+    background-color: #FFFFFF;
+    padding: 5px 0;
+    color: #000080;
     font-size: 0.9rem;
 }
 
 .banner .container {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
+    gap: 1rem;
 }
 
 .banner-logo {
-    height: auto; /* Removed fixed height */
-    max-height: 200px; /* Maximum height to limit scaling */
-    width: auto; /* Maintains aspect ratio */
-    max-width: 300px; /* Maximum width to limit stretching */
-    border-radius: 10px;
+    height: auto;
+    max-height: 100px;
+    width: auto;
+    max-width: 100px;
+    border-radius: 50%;
     padding: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
-    object-fit: contain; /* Ensures the image fits without distortion */
+    object-fit: contain;
 }
 
 .banner-logo:hover {
-    border-color: #E65B50;
+    border-color: #000000;
     transform: scale(1.05);
     box-shadow: 0 6px 12px rgba(230, 91, 80, 0.4);
 }
 
+.contact-info {
+    color: #000080;
+}
+
 .contact-info a {
-    color: #FFFFFF;
+    color: #000080;
     margin: 0 5px;
 }
 
 .contact-info a:hover {
-    color: #FF6F61;
+    color: #000000;
     text-decoration: underline;
 }
 
 .contact-info i {
     font-size: 1rem;
+    color: #000080;
+}
+
+.tagline {
+    color: #000080;
+}
+
+/* Navigation Bar Styles */
+.navbar {
+    background-color: #FFFFFF !important;
+    border-bottom: 1px solid;
+    border-image: linear-gradient(to right, #000080, #1E90FF) 1;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.navbar-brand {
+    color: #000080 !important;
+}
+
+.nav-link {
+    color: #000080 !important;
+    position: relative; /* Needed for the ::after pseudo-element positioning */
+    transition: color 0.3s ease; /* Smooth transition for text color change */
+}
+
+.nav-link:hover {
+    color: #161514 !important;
+}
+
+.nav-link::after {
+    content: ''; /* Create an empty pseudo-element */
+    position: absolute;
+    width: 100%;
+    height: 2px; /* Thickness of the underline */
+    background-color: #1a1a3e; /* Match the hover text color */
+    bottom: 2px; /* Position below the text */
+    left: 0;
+    transform: scaleX(0); /* Start with no width */
+    transform-origin: left; /* Scale from the left */
+    transition: transform 0.3s ease; /* Smooth scaling animation */
+}
+
+.nav-link:hover::after {
+    transform: scaleX(1); /* Scale to full width on hover */
+}
+
+.navbar-logo {
+    height: 40px;
+    margin-right: 1rem;
+    border-radius: 50%;
+    border: 2px solid #000080;
+    padding: 2px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.navbar-logo:hover {
+    border-color: #000000;
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(255, 111, 97, 0.3);
 }
 
 /* Contact Card Styles */
@@ -62,7 +133,7 @@ body {
     border: 1px solid #E0E0E0;
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    padding: 1.5rem;
+    padding: 1rem;
     margin: 0 auto;
     text-align: center;
 }
@@ -220,22 +291,6 @@ body {
     right: -250px;
 }
 
-.navbar-logo {
-    height: 40px;
-    margin-right: 1rem;
-    border-radius: 50%;
-    border: 2px solid #000000;
-    padding: 2px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
-}
-
-.navbar-logo:hover {
-    border-color: #FF6F61;
-    transform: scale(1.1);
-    box-shadow: 0 6px 12px rgba(255, 111, 97, 0.3);
-}
-
 .bg-black { background-color: #000000; }
 .bg-gray { background-color: #F5F5F5; }
 .bg-parallax {
@@ -372,7 +427,7 @@ p, li {
 }
 
 .uniform-height {
-    height: 300px;
+    min-height: 300px;
 }
 
 .about-story-card {
@@ -380,7 +435,7 @@ p, li {
     display: flex;
     align-items: flex-start;
     gap: 2rem;
-    flex-wrap: wrap; /* Allows responsive wrapping */
+    flex-wrap: wrap;
 }
 
 .story-logo img.jk-logo {
@@ -415,31 +470,37 @@ p, li {
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
 }
 
+.about-card p {
+    overflow-wrap: break-word;
+}
+
 @media (max-width: 576px) {
     .about-story-card {
-        flex-direction: column; /* Stack elements vertically */
-        align-items: center; /* Center horizontally */
-        justify-content: center; /* Center vertically if needed */
-        gap: 1rem; /* Reduced gap for mobile */
-        text-align: center; /* Center text for better appearance */
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        text-align: center;
     }
     .story-text {
-        flex: none; /* Remove flex ratio since we're stacking */
-        width: 100%; /* Ensure text takes full width */
+        flex: none;
+        width: 100%;
     }
     .story-logo {
-        flex: none; /* Remove flex ratio */
-        width: 100%; /* Ensure logo container takes full width */
-        display: flex; /* Use flex to center the logo */
-        justify-content: center; /* Center logo horizontally */
+        flex: none;
+        width: 100%;
+        display: flex;
+        justify-content: center;
     }
     .jk-logo {
-        height: 150px; /* Smaller logo on mobile */
+        height: 150px;
         width: auto;
-        max-width: 150px; /* Ensure it doesn't exceed this width */
+        max-width: 150px;
     }
     .about-card {
         min-height: 200px;
+        padding: 1rem;
+        transform: translateX(-50px);
     }
     .uniform-height {
         min-height: 200px;
@@ -616,6 +677,10 @@ p, li {
     }
     .call-icon i {
         font-size: 1.5rem;
+    }
+    .banner-logo {
+        max-height: 60px;
+        max-width: 60px;
     }
 }
 
