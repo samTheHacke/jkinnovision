@@ -284,7 +284,6 @@
         </div>
     </section>
 
-
     <!-- Clients Section -->
     <section id="clients" class="py-5 bg-gray">
         <div class="container">
@@ -403,7 +402,6 @@
                             </a>
                         </p>
                     </div>
-                    
                 </div>
             </div>
         </div>
@@ -460,6 +458,24 @@
     <!-- Custom JS -->
     <script src="script.js"></script>
     <script>
+        // Collapse navbar on nav link click in mobile view
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            const navbarCollapse = document.querySelector('#navbarNav');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth <= 991) { // Bootstrap's lg breakpoint
+                        const bsCollapse = new bootstrap.Collapse(navbarCollapse, {
+                            toggle: false
+                        });
+                        bsCollapse.hide();
+                    }
+                });
+            });
+        });
+
         function showRecommendation() {
             const property = document.getElementById('property-type').value;
             const mainImage = document.getElementById('recommendation-image-main');
