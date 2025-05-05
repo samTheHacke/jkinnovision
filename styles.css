@@ -20,16 +20,16 @@ body {
 
 .banner .container {
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
     gap: 1rem;
 }
 
 .banner-logo {
     height: auto;
-    max-height: 100px;
+    max-height: 120px; /* Increased from 100px */
     width: auto;
-    max-width: 100px;
+    max-width: 120px; /* Increased from 100px */
     border-radius: 50%;
     padding: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -64,6 +64,8 @@ body {
 
 .tagline {
     color: #000080;
+    flex: 1; /* Allow tagline to take available space */
+    text-align: center; /* Center the text */
 }
 
 /* Navigation Bar Styles */
@@ -707,8 +709,26 @@ p, li {
         font-size: 1.5rem;
     }
     .banner-logo {
-        max-height: 60px;
-        max-width: 60px;
+        max-height: 80px; /* Increased from 60px */
+        max-width: 80px; /* Increased from 60px */
+    }
+    /* Center the mobile tagline more effectively */
+    .banner .container {
+        flex-direction: column; /* Stack elements vertically in mobile view */
+        align-items: center; /* Center all elements */
+    }
+    .contact-info {
+        text-align: center; /* Center contact info text */
+        margin-top: 0.5rem;
+    }
+    .tagline {
+        order: 1; /* Ensure tagline stays above contact info */
+    }
+    .contact-info {
+        order: 2; /* Place contact info below tagline */
+    }
+    .banner-logo {
+        order: 0; /* Keep logo at the top */
     }
 }
 
