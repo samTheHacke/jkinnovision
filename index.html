@@ -52,7 +52,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link fs-5 me-5" href="#">Home</a>
+                        <a class="nav-link fs-5 me-5" href="#home">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link fs-5 me-5" href="#services">Our Services</a>
@@ -483,19 +483,28 @@
                     event.preventDefault();
 
                     // Get the target section ID from the href
-                    const targetId = link.getAttribute('href');
-                    const targetElement = document.querySelector(targetId);
+                    const targetId = link.getAttribute('href').substring(1); // Remove the '#' from href
+                    let targetElement;
 
-                    if (targetElement) {
-                        // Calculate the position to scroll to, accounting for the header offset
-                        const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
-                        const offsetPosition = elementPosition - headerOffset;
-
-                        // Smooth scroll to the adjusted position
+                    // Handle the "Home" link specially
+                    if (targetId === 'home') {
+                        // Scroll to the very top of the page
                         window.scrollTo({
-                            top: offsetPosition,
+                            top: 0,
                             behavior: 'smooth'
                         });
+                    } else {
+                        // For other links, scroll to the target element with offset
+                        targetElement = document.getElementById(targetId);
+                        if (targetElement) {
+                            const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+                            const offsetPosition = elementPosition - headerOffset;
+
+                            window.scrollTo({
+                                top: offsetPosition,
+                                behavior: 'smooth'
+                            });
+                        }
                     }
 
                     // Collapse the navbar in mobile view
