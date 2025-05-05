@@ -4,10 +4,28 @@ body {
     background: #F5F5F5;
     overflow-x: hidden;
     line-height: 1.6;
+    width: 100vw; /* Ensure body takes full viewport width */
+    min-height: 100vh; /* Ensure body covers full height */
 }
 
-#main-nav {
-    transition: top 0.3s ease;
+html {
+    overflow-x: hidden; /* Prevent horizontal overflow at the root level */
+    background: #F5F5F5; /* Ensure the root background matches the body */
+}
+
+/* Ensure all sections inherit the background */
+section, .banner, footer {
+    background: #F5F5F5; /* Default background for sections */
+    width: 100%; /* Ensure sections don’t exceed viewport width */
+    overflow-x: hidden; /* Prevent overflow within sections */
+}
+
+/* Fix container widths to prevent overflow */
+.container {
+    max-width: 100%; /* Ensure container doesn’t exceed viewport */
+    padding-left: 15px;
+    padding-right: 15px;
+    box-sizing: border-box; /* Ensure padding is included in width */
 }
 
 /* Banner Styles */
@@ -16,6 +34,8 @@ body {
     padding: 5px 0;
     color: #000080;
     font-size: 0.9rem;
+    width: 100%;
+    overflow-x: hidden; /* Prevent overflow in banner */
 }
 
 .banner .container {
@@ -23,6 +43,8 @@ body {
     justify-content: space-between;
     align-items: center;
     gap: 1rem;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .banner-logo {
@@ -45,11 +67,14 @@ body {
 
 .contact-info {
     color: #000080;
+    max-width: 100%; /* Prevent overflow */
+    overflow-wrap: break-word; /* Ensure long text wraps */
 }
 
 .contact-info a {
     color: #000080;
     margin: 0 5px;
+    white-space: nowrap; /* Keep phone/email links on one line unless they need to wrap */
 }
 
 .contact-info a:hover {
@@ -74,12 +99,15 @@ body {
     border-bottom: 1px solid;
     border-image: linear-gradient(to right, #000080, #1E90FF) 1;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
 }
 
 .navbar .container {
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .navbar-brand {
@@ -135,6 +163,7 @@ body {
         background-color: #052d91;
         padding: 1rem;
         border-radius: 0 0 10px 10px;
+        width: 100%;
     }
     .navbar-nav {
         padding: 0.5rem 0;
@@ -166,28 +195,35 @@ body {
     padding: 1rem;
     margin: 0 auto;
     text-align: center;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .contact-card .row {
     align-items: stretch;
+    width: 100%;
 }
 
 .contact-card form {
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
-    border: 2px solid #000080; /* Added border around the entire form */
-    border-radius: 8px; /* Slightly smaller radius than the card */
-    padding: 1rem; /* Add padding inside the form to space out the content */
+    border: 2px solid #000080;
+    border-radius: 8px;
+    padding: 1rem;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .contact-card .form-control {
-    border: 2px solid #bebed7;
+    border: 2px solid #000080;
     border-radius: 5px;
     height: 38px;
     font-size: 0.9rem;
     padding: 0.5rem;
     transition: border-color 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .contact-card .form-control:focus {
@@ -204,10 +240,12 @@ body {
     margin-top: 0.75rem;
     padding: 0.5rem;
     font-size: 0.9rem;
+    width: 100%;
 }
 
 .contact-card .col-md-6 {
     padding: 0 0.75rem;
+    width: 100%;
 }
 
 .contact-card .col-md-6:last-child {
@@ -264,6 +302,7 @@ body {
     position: relative;
     overflow: hidden;
     padding: 4rem 0;
+    width: 100%;
 }
 
 @keyframes gradientShift {
@@ -312,6 +351,7 @@ body {
     gap: 20px;
     min-height: 300px;
     padding: 2rem 0;
+    width: 100%;
 }
 
 .recommendation-image {
@@ -344,6 +384,7 @@ body {
     background-attachment: fixed;
     background-size: cover;
     position: relative;
+    width: 100%;
 }
 
 .btn-coral { 
@@ -416,11 +457,7 @@ p, li {
     background: linear-gradient(rgba(30, 144, 255, 0.7), rgba(128, 0, 128, 0.7)), url('images/cctv2.jpg') no-repeat center center;
     background-size: cover, cover;
     background-blend-mode: overlay;
-}
-
-.hero-bg-container .container {
-    position: relative;
-    z-index: 1;
+    width: 100%;
 }
 
 /* Security Slider Styles */
@@ -470,6 +507,7 @@ p, li {
     flex-direction: column;
     justify-content: space-between;
     min-height: 300px;
+    width: 100%;
 }
 
 .uniform-height {
@@ -482,6 +520,7 @@ p, li {
     align-items: flex-start;
     gap: 2rem;
     flex-wrap: wrap;
+    width: 100%;
 }
 
 .story-logo img.jk-logo {
@@ -573,6 +612,7 @@ p, li {
     opacity: 0;
     transform: translateY(50px);
     position: relative;
+    width: 100%;
 }
 
 .strength-card.visible {
@@ -598,6 +638,7 @@ p, li {
 .testimonials-carousel {
     position: relative;
     overflow: hidden;
+    width: 100%;
 }
 
 .testimonials-carousel .strength-card {
@@ -622,11 +663,13 @@ p, li {
     background-size: cover;
     background-blend-mode: overlay;
     position: relative;
+    width: 100%;
 }
 
 .about-bg-container .container {
     position: relative;
     z-index: 1;
+    width: 100%;
 }
 
 /* Popup Modal Styles */
@@ -731,13 +774,29 @@ p, li {
     .banner .container {
         flex-direction: column;
         align-items: center;
+        width: 100%;
     }
     .contact-info {
         text-align: center;
         margin-top: 0.5rem;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    .contact-info div {
+        white-space: normal; /* Allow wrapping */
+        overflow-wrap: break-word; /* Ensure long text wraps */
+        max-width: 100%; /* Prevent overflow */
+    }
+    .contact-info a {
+        display: inline-block; /* Allow wrapping */
+        white-space: normal; /* Allow email links to wrap */
+        word-break: break-all; /* Break long email addresses */
     }
     .tagline {
         order: 1;
+        width: 100%;
     }
     .contact-info {
         order: 2;
