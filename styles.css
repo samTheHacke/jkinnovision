@@ -1,16 +1,18 @@
+/* Root-level background fix */
+html {
+    background: #F5F5F5; /* Ensure the root background matches the body */
+    width: 100vw; /* Ensure full viewport width */
+    /* Removed overflow-x: hidden to avoid breaking position: sticky */
+}
+
 body {
     font-family: 'Montserrat', sans-serif;
     color: #2F2F2F;
     background: #F5F5F5;
-    overflow-x: hidden;
+    overflow-x: hidden; /* Prevent horizontal overflow at the body level */
     line-height: 1.6;
     width: 100vw; /* Ensure body takes full viewport width */
     min-height: 100vh; /* Ensure body covers full height */
-}
-
-html {
-    overflow-x: hidden; /* Prevent horizontal overflow at the root level */
-    background: #F5F5F5; /* Ensure the root background matches the body */
 }
 
 /* Ensure all sections inherit the background */
@@ -100,6 +102,9 @@ section, .banner, footer {
     border-image: linear-gradient(to right, #000080, #1E90FF) 1;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     width: 100%;
+    position: sticky; /* Reinforce Bootstrap's sticky-top */
+    top: 0; /* Ensure it sticks to the top */
+    z-index: 1020; /* Match Bootstrap's z-index for sticky-top */
 }
 
 .navbar .container {
@@ -290,6 +295,13 @@ section, .banner, footer {
 @media (max-width: 576px) {
     .call-icon {
         display: flex;
+        bottom: 10px;
+        right: 10px;
+        width: 40px;
+        height: 40px;
+    }
+    .call-icon i {
+        font-size: 1.5rem;
     }
 }
 
@@ -559,40 +571,604 @@ p, li {
     overflow-wrap: break-word;
 }
 
-@media (max-width: 576px) {
-    .about-story-card {
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 1rem;
-        text-align: center;
-    }
-    .story-text {
-        flex: none;
-        width: 100%;
-    }
-    .story-logo {
-        flex: none;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-    }
-    .jk-logo {
-        height: 150px;
-        width: auto;
-        max-width: 150px;
-    }
-    .about-card {
-        min-height: 200px;
+/* Strength Card Styles with Animation */
+.strength-card {
+    background: #F0F0F0;
+    border: 1px solid #E0E0E0;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.5s ease;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(50px);
+    position: relative;
+    width: 100%;
+}
+
+.strength-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.strength-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Google Icon Styles */
+.google-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5rem;
+    color: #4285F4;
+}
+
+/* Testimonial Carousel Styles */
+.testimonials-carousel {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.testimonials-carousel .strength-card {
+    display: none;
+}
+
+.testimonials-carousel .strength-card:first-child {
+    display: block;
+}
+
+.testimonial-content .rating {
+    margin-bottom: 0.5rem;
+}
+
+.testimonial-content .text-muted {
+    font-size: 0.9rem;
+}
+
+/* About Background Styles */
+.about-bg-container {
+    background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url('../images/cctv') no-repeat center center;
+    background-size: cover;
+    background-blend-mode: overflow-x: hidden; /* Prevent overflow in banner */
+}
+
+.banner .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.banner-logo {
+    height: auto;
+    max-height: 150px;
+    width: auto;
+    max-width: 150px;
+    border-radius: 50%;
+    padding: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    object-fit: contain;
+}
+
+.banner-logo:hover {
+    border-color: #000000;
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(94, 109, 237, 0.4);
+}
+
+.contact-info {
+    color: #000080;
+    max-width: 100%; /* Prevent overflow */
+    overflow-wrap: break-word; /* Ensure long text wraps */
+}
+
+.contact-info a {
+    color: #000080;
+    margin: 0 5px;
+    white-space: nowrap; /* Keep phone/email links on one line unless they need to wrap */
+}
+
+.contact-info a:hover {
+    color: #000000;
+    text-decoration: underline;
+}
+
+.contact-info i {
+    font-size: 1rem;
+    color: #000080;
+}
+
+.tagline {
+    color: #000080;
+    flex: 1;
+    text-align: center;
+}
+
+/* Navigation Bar Styles */
+.navbar {
+    background-color: #FFFFFF !important;
+    border-bottom: 1px solid;
+    border-image: linear-gradient(to right, #000080, #1E90FF) 1;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    position: sticky; /* Reinforce Bootstrap's sticky-top */
+    top: 0; /* Ensure it sticks to the top */
+    z-index: 1020; /* Match Bootstrap's z-index for sticky-top */
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.navbar-brand {
+    color: #000080 !important;
+}
+
+.nav-link {
+    color: #000080 !important;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #161514 !important;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #1a1a3e;
+    bottom: 2px;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.nav-link:hover::after {
+    transform: scaleX(1);
+}
+
+.navbar-logo {
+    height: 40px;
+    margin-right: 1rem;
+    border-radius: 50%;
+    border: 2px solid #000080;
+    padding: 2px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.navbar-logo:hover {
+    border-color: #000000;
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(255, 111, 97, 0.3);
+}
+
+/* Fix collapsed navbar background and toggler icon in mobile view */
+@media (max-width: 991px) {
+    .navbar-collapse {
+        background-color: #052d91;
         padding: 1rem;
-        transform: translateX(-50px);
+        border-radius: 0 0 10px 10px;
+        width: 100%;
     }
-    .uniform-height {
-        min-height: 200px;
+    .navbar-nav {
+        padding: 0.5rem 0;
     }
-    .hide-tagline-desktop {
-        display: none;
+    .nav-link {
+        color: #FFFFFF !important;
     }
+    .nav-link:hover {
+        color: #FF6F61 !important;
+    }
+    .nav-link::after {
+        background-color: #FF6F61;
+    }
+    .navbar-toggler {
+        border-color: #000080;
+    }
+    .navbar-toggler-icon {
+        filter: none;
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(128, 0, 128, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+}
+
+/* Contact Card Styles */
+.contact-card {
+    background: #FFFFFF;
+    border: 1px solid #E0E0E0;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.contact-card .row {
+    align-items: stretch;
+    width: 100%;
+}
+
+.contact-card form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    border: 2px solid #000080;
+    border-radius: 8px;
+    padding: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.contact-card .form-control {
+    border: 2px solid #000080;
+    border-radius: 5px;
+    height: 38px;
+    font-size: 0.9rem;
+    padding: 0.5rem;
+    transition: border-color 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.contact-card .form-control:focus {
+    border-color: #1E90FF;
+    box-shadow: 0 0 5px rgba(30, 144, 255, 0.3);
+    outline: none;
+}
+
+.contact-card textarea.form-control {
+    height: auto;
+}
+
+.contact-card .btn-coral {
+    margin-top: 0.75rem;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+    width: 100%;
+}
+
+.contact-card .col-md-6 {
+    padding: 0 0.75rem;
+    width: 100%;
+}
+
+.contact-card .col-md-6:last-child {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@media (min-width: 768px) {
+    .contact-card .col-md-6:last-child p {
+        margin-bottom: 0;
+    }
+}
+
+/* Call Icon Styles */
+.call-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #32CD32;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    z-index: 1000;
+}
+
+.call-icon:hover {
+    transform: scale(1.1);
+    background-color: #28A745;
+}
+
+.call-icon i {
+    color: #FFFFFF;
+}
+
+@media (max-width: 576px) {
+    .call-icon {
+        display: flex;
+        bottom: 10px;
+        right: 10px;
+        width: 40px;
+        height: 40px;
+    }
+    .call-icon i {
+        font-size: 1.5rem;
+    }
+}
+
+/* Hero Section Styles */
+.hero-section {
+    background: linear-gradient(45deg, #000000, #333333, #FF6F61);
+    background-size: 200% 200%;
+    animation: gradientShift 10s ease infinite;
+    min-height: 70vh;
+    position: relative;
+    overflow: hidden;
+    padding: 4rem 0;
+    width: 100%;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 0%; }
+    50% { background-position: 100% 100%; }
+    100% { background-position: 0% 0%; }
+}
+
+.hero-section h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    letter-spacing: 0.5px;
+}
+
+.hero-section p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 400;
+    z-index: 1;
+}
+
+.hero-images .float-image {
+    position: absolute;
+    animation: float 5s ease-in-out infinite;
+    z-index: 0;
+    font-size: 2rem;
+}
+
+.hero-images .float-image:nth-child(1) { top: 20%; left: 10%; opacity: 40%; }
+.hero-images .float-image:nth-child(2) { top: 40%; right: 10%; transform: scaleX(-1); opacity: 30%; }
+.hero-images .float-image:nth-child(3) { bottom: 20%; left: 30%; opacity: 20%; }
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) scaleX(1); }
+    50% { transform: translateY(-20px) scaleX(1); }
+}
+
+.recommendation-images {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    min-height: 300px;
+    padding: 2rem 0;
+    width: 100%;
+}
+
+.recommendation-image {
+    width: 300px;
+    animation: pulse 3s infinite;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.side-image {
+    position: absolute;
+    width: 200px;
+    opacity: 0.5;
+    transition: all 0.5s ease;
+}
+
+.side-image#recommendation-image-side-1 {
+    left: -250px;
+}
+
+.side-image#recommendation-image-side-2 {
+    right: -250px;
+}
+
+.bg-black { background-color: #000000; }
+.bg-gray { background-color: #F5F5F5; }
+.bg-parallax {
+    background: linear-gradient(to bottom, #ffffff, #e0d3e0, #ddf7dd);
+    background-attachment: fixed;
+    background-size: cover;
+    position: relative;
+    width: 100%;
+}
+
+.btn-coral { 
+    background-color: #FF6F61; 
+    border: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+}
+.btn-coral:hover { background-color: #E65B50; }
+.btn-pulse {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.service-icon {
+    transition: transform 0.3s ease;
+}
+
+.service-icon:hover {
+    transform: rotate(15deg) scale(1.1);
+    color: #FF6F61;
+}
+
+.client-logo {
+    max-height: 120px;
+    width: auto;
+    padding: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.client-logo:hover {
+    transform: scale(1.1);
+}
+
+h2, h3, h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+
+p, li {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+}
+
+.navbar-brand, .nav-link {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+}
+
+.text-super-white {
+    color: #FFFFFF !important;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+}
+
+.fw-extra-bold {
+    font-weight: 900 !important;
+}
+
+.fw-medium {
+    font-weight: 600 !important;
+}
+
+/* Hero Background Styles */
+.hero-bg-container {
+    background: linear-gradient(rgba(30, 144, 255, 0.7), rgba(128, 0, 128, 0.7)), url('images/cctv2.jpg') no-repeat center center;
+    background-size: cover, cover;
+    background-blend-mode: overlay;
+    width: 100%;
+}
+
+/* Security Slider Styles */
+.security-slider {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    overflow: hidden;
+    height: 400px;
+}
+
+.security-image-container {
+    position: relative;
+    height: 100%;
+}
+
+.security-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 1s ease;
+    border-radius: 25px;
+}
+
+.security-image.active {
+    opacity: 1;
+    z-index: 10;
+}
+
+/* About Card Styles with Animation */
+.about-card {
+    background: #FFFFFF;
+    border: 1px solid #E0E0E0;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    transition: box-shadow 0.3s ease, transform 0.5s ease, opacity 0.5s ease;
+    opacity: 0;
+    transform: translateX(-100px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 300px;
+    width: 100%;
+}
+
+.uniform-height {
+    min-height: 300px;
+}
+
+.about-story-card {
+    text-align: left;
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.story-logo img.jk-logo {
+    max-width: 150px;
+    height: auto;
+}
+
+.story-text {
+    flex: 1;
+    min-width: 0;
+}
+
+.jk-logo {
+    height: 300px;
+    width: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.jk-logo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(230, 91, 80, 0.4);
+}
+
+.about-card.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.about-card:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+.about-card p {
+    overflow-wrap: break-word;
 }
 
 /* Strength Card Styles with Animation */
@@ -803,6 +1379,9 @@ p, li {
     }
     .banner-logo {
         order: 0;
+    }
+    .hide-tagline-desktop {
+        display: none;
     }
 }
 
