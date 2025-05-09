@@ -196,25 +196,9 @@ section, .banner, footer {
     border: 1px solid #E0E0E0;
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    padding: 1rem;
+    padding: 1.5rem;
     margin: 0 auto;
     text-align: center;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.contact-card .row {
-    align-items: stretch;
-    width: 100%;
-}
-
-.contact-card form {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    border: 2px solid #000080;
-    border-radius: 8px;
-    padding: 1rem;
     width: 100%;
     box-sizing: border-box;
 }
@@ -238,6 +222,7 @@ section, .banner, footer {
 
 .contact-card textarea.form-control {
     height: auto;
+    min-height: 100px;
 }
 
 .contact-card .btn-coral {
@@ -247,20 +232,30 @@ section, .banner, footer {
     width: 100%;
 }
 
-.contact-card .col-md-6 {
-    padding: 0 0.75rem;
-    width: 100%;
+/* Add this to your CSS */
+#contactForm {
+    border: 2px solid #000080 !important;
+    border-radius: 10px !important;
 }
 
-.contact-card .col-md-6:last-child {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+/* Optional: Add a subtle shadow to make the form pop */
+#contactForm {
+    box-shadow: 0 2px 8px rgba(0, 0, 128, 0.1);
 }
 
-@media (min-width: 768px) {
-    .contact-card .col-md-6:last-child p {
-        margin-bottom: 0;
+/* For better visual separation of the contact info */
+.bg-light {
+    background-color: #f8f9fa !important;
+    border: 1px solid #dee2e6;
+}
+
+@media (max-width: 768px) {
+    .contact-card {
+        padding: 1rem;
+    }
+    
+    .contact-card .col-md-5 {
+        margin-top: 1.5rem;
     }
 }
 
