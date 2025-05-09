@@ -470,12 +470,11 @@
     <!-- Custom JS -->
     <script src="script.js"></script>
     <script>
-        // Collapse navbar on nav link click in mobile view and add scroll offset
+        // Collapse navbar on nav link click in mobile view and add dynamic scroll offset
         document.addEventListener('DOMContentLoaded', () => {
             const navLinks = document.querySelectorAll('.nav-link');
             const navbarToggler = document.querySelector('.navbar-toggler');
             const navbarCollapse = document.querySelector('#navbarNav');
-            const headerOffset = 70; // Adjust this value based on your header height
 
             navLinks.forEach(link => {
                 link.addEventListener('click', (event) => {
@@ -486,6 +485,10 @@
                     const targetId = link.getAttribute('href').substring(1); // Remove the '#' from href
                     let targetElement;
 
+                    // Get the navbar height dynamically
+                    const navbar = document.querySelector('.navbar');
+                    const headerOffset = navbar ? navbar.offsetHeight : 0;
+
                     // Handle the "Home" link specially
                     if (targetId === 'home') {
                         // Scroll to the very top of the page
@@ -494,25 +497,28 @@
                             behavior: 'smooth'
                         });
                     } else {
-                        // For other links, scroll to the target element with offset
+                        // For other links, scroll to the target element with dynamic offset
                         targetElement = document.getElementById(targetId);
                         if (targetElement) {
                             const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
                             const offsetPosition = elementPosition - headerOffset;
 
-                            window.scrollTo({
-                                top: offsetPosition,
-                                behavior: 'smooth'
-                            });
-                        }
-                    }
+                            // Collapse the navbar in mobile view
+                            if (window.innerWidth <= 991) { // Bootstrap's lg breakpoint
+                                const bsCollapse = new bootstrap.Collapse(navbarCollapse, {
+                                    toggle: false
+                                });
+                                bsCollapse.hide();
+                            }
 
-                    // Collapse the navbar in mobile view
-                    if (window.innerWidth <= 991) { // Bootstrap's lg breakpoint
-                        const bsCollapse = new bootstrap.Collapse(navbarCollapse, {
-                            toggle: false
-                        });
-                        bsCollapse.hide();
+                            // Delay the scroll to ensure navbar collapse animation completes
+                            setTimeout(() => {
+                                window.scrollTo({
+                                    top: offsetPosition,
+                                    behavior: 'smooth'
+                                });
+                            }, 300); // Match Bootstrap's collapse animation duration (~300ms)
+                        }
                     }
                 });
             });
