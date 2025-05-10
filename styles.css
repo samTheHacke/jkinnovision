@@ -719,6 +719,13 @@ p, li {
     .strength-card {
         padding: 1rem;
         height: 220px;
+        opacity: 1 !important; /* Ensure cards are fully visible */
+        transform: none !important; /* Remove any transform */
+        transition: none !important; /* Disable transitions */
+    }
+    .strength-card.visible {
+        opacity: 1 !important;
+        transform: none !important;
     }
     #about {
         padding: 2rem 0;
