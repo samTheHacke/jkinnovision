@@ -520,6 +520,7 @@ p, li {
     min-height: 300px;
 }
 
+/* About Card Styles with Animation */
 .about-story-card {
     text-align: left;
     display: flex;
@@ -529,19 +530,20 @@ p, li {
     width: 100%;
 }
 
-.story-logo img.jk-logo {
-    max-width: 150px;
-    height: auto;
+.story-logo {
+    margin: 0 auto; /* Center logo in mobile view */
 }
 
-.story-text {
-    flex: 1;
-    min-width: 0;
+/* For desktop view */
+@media (min-width: 768px) {
+    .story-logo {
+        margin: 0; /* Reset margin for desktop */
+    }
 }
 
 .jk-logo {
-    height: 300px;
-    width: auto;
+    height: auto;
+    max-width: 150px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease;
