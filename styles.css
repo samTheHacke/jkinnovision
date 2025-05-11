@@ -532,12 +532,18 @@ p, li {
 
 .story-logo {
     margin: 0 auto; /* Center logo in mobile view */
+    flex-shrink: 0; /* Prevent logo from shrinking */
 }
 
-/* For desktop view */
 @media (min-width: 768px) {
+    .about-story-card {
+        flex-wrap: nowrap; /* Prevent wrapping in desktop */
+    }
     .story-logo {
         margin: 0; /* Reset margin for desktop */
+        order: 2; /* Place logo after story-text */
+        text-align: right; /* Align logo to the right */
+        max-width: 150px; /* Match logo image max-width */
     }
 }
 
