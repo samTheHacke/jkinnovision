@@ -395,6 +395,13 @@ section, .banner, footer {
 .service-icon:hover {
     transform: rotate(15deg) scale(1.1);
     color: #FF6F61;
+    animation: iconPulse 1.5s infinite;
+}
+
+@keyframes iconPulse {
+    0% { transform: rotate(15deg) scale(1.1); }
+    50% { transform: rotate(15deg) scale(1.2); }
+    100% { transform: rotate(15deg) scale(1.1); }
 }
 
 .client-logo {
@@ -560,7 +567,7 @@ p, li {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 1.5rem;
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.5s ease;
+    transition: transform 0.5s ease, box-shadow 0.3s ease, opacity 0.5s ease;
     height: 250px;
     display: flex;
     flex-direction: column;
@@ -576,7 +583,7 @@ p, li {
 
 .strength-card.not-visible {
     opacity: 0;
-    transform: translateY(50px);
+    transform: translateY(50px) scale(0.95);
 }
 
 .strength-card.visible {
@@ -584,9 +591,34 @@ p, li {
     transform: none;
 }
 
-.strength-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+/* Future Section Card Animations */
+#future .strength-card.not-visible {
+    transition: transform 0.5s ease, opacity 0.5s ease, scale 0.5s ease;
+}
+
+#future .strength-card.visible {
+    transition: transform 0.5s ease, opacity 0.5s ease, scale 0.5s ease;
+    animation: cardPopIn 0.6s ease-out forwards;
+}
+
+#future .strength-card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), 0 0 10px rgba(255, 111, 97, 0.5);
+}
+
+@keyframes cardPopIn {
+    0% {
+        opacity: 0;
+        transform: translateY(50px) scale(0.95);
+    }
+    80% {
+        opacity: 1;
+        transform: translateY(-5px) scale(1.02);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 }
 
 /* Google Icon Styles */
@@ -731,6 +763,10 @@ p, li {
     .strength-card.not-visible, .strength-card.visible {
         opacity: 1 !important;
         transform: none !important;
+    }
+    #future .strength-card:hover {
+        transform: none !important;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
     }
     #about {
         padding: 2rem 0;
