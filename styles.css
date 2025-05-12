@@ -1,32 +1,30 @@
 /* Root-level background fix */
 html {
-    background: #F5F5F5; /* Ensure the root background matches the body */
-    width: 100vw; /* Ensure full viewport width */
+    background: #F5F5F5;
+    width: 100vw;
 }
 
 body {
     font-family: 'Montserrat', sans-serif;
     color: #2F2F2F;
     background: #F5F5F5;
-    overflow-x: hidden; /* Prevent horizontal overflow at the body level */
+    overflow-x: hidden;
     line-height: 1.6;
-    width: 100vw; /* Ensure body takes full viewport width */
-    min-height: 100vh; /* Ensure body covers full height */
+    width: 100vw;
+    min-height: 100vh;
 }
 
-/* Ensure all sections inherit the background */
 section, .banner, footer {
-    background: #F5F5F5; /* Default background for sections */
-    width: 100%; /* Ensure sections don’t exceed viewport width */
-    overflow-x: hidden; /* Prevent overflow within sections */
+    background: #F5F5F5;
+    width: 100%;
+    overflow-x: hidden;
 }
 
-/* Fix container widths to prevent overflow */
 .container {
-    max-width: 100%; /* Ensure container doesn’t exceed viewport */
+    max-width: 100%;
     padding-left: 15px;
     padding-right: 15px;
-    box-sizing: border-box; /* Ensure padding is included in width */
+    box-sizing: border-box;
 }
 
 /* Banner Styles */
@@ -36,7 +34,7 @@ section, .banner, footer {
     color: #000080;
     font-size: 0.9rem;
     width: 100%;
-    overflow-x: hidden; /* Prevent overflow in banner */
+    overflow-x: hidden;
 }
 
 .banner .container {
@@ -68,14 +66,14 @@ section, .banner, footer {
 
 .contact-info {
     color: #000080;
-    max-width: 100%; /* Prevent overflow */
-    overflow-wrap: break-word; /* Ensure long text wraps */
+    max-width: 100%;
+    overflow-wrap: break-word;
 }
 
 .contact-info a {
     color: #000080;
     margin: 0 5px;
-    white-space: nowrap; /* Keep phone/email links on one line unless they need to wrap */
+    white-space: nowrap;
 }
 
 .contact-info a:hover {
@@ -101,9 +99,9 @@ section, .banner, footer {
     border-image: linear-gradient(to right, #000080, #1E90FF) 1;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     width: 100%;
-    position: sticky; /* Reinforce Bootstrap's sticky-top */
-    top: 0; /* Ensure it sticks to the top */
-    z-index: 1020; /* Match Bootstrap's z-index for sticky-top */
+    position: sticky;
+    top: 0;
+    z-index: 1020;
 }
 
 .navbar .container {
@@ -161,7 +159,6 @@ section, .banner, footer {
     box-shadow: 0 6px 12px rgba(255, 111, 97, 0.3);
 }
 
-/* Fix collapsed navbar background and toggler icon in mobile view */
 @media (max-width: 991px) {
     .navbar-collapse {
         background-color: #052d91;
@@ -232,18 +229,12 @@ section, .banner, footer {
     width: 100%;
 }
 
-/* Add this to your CSS */
 #contactForm {
     border: 2px solid #000080 !important;
     border-radius: 10px !important;
-}
-
-/* Optional: Add a subtle shadow to make the form pop */
-#contactForm {
     box-shadow: 0 2px 8px rgba(0, 0, 128, 0.1);
 }
 
-/* For better visual separation of the contact info */
 .bg-light {
     background-color: #f8f9fa !important;
     border: 1px solid #dee2e6;
@@ -284,19 +275,6 @@ section, .banner, footer {
 
 .call-icon i {
     color: #FFFFFF;
-}
-
-@media (max-width: 576px) {
-    .call-icon {
-        display: flex;
-        bottom: 10px;
-        right: 10px;
-        width: 40px;
-        height: 40px;
-    }
-    .call-icon i {
-        font-size: 1.5rem;
-    }
 }
 
 /* Hero Section Styles */
@@ -498,6 +476,19 @@ p, li {
     z-index: 10;
 }
 
+/* Prevent overflow in sections with animations */
+#strengths, #services, #future, #testimonials {
+    overflow: hidden;
+}
+
+#strengths .row, #services .row, #future .row, #testimonials .row {
+    overflow: hidden;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
 /* About Card Styles with Animation */
 .about-card {
     background: #FFFFFF;
@@ -516,11 +507,24 @@ p, li {
     width: 100%;
 }
 
+.about-card.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
 .uniform-height {
     min-height: 300px;
 }
 
-/* About Card Styles with Animation */
+.about-card:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+.about-card p {
+    overflow-wrap: break-word;
+}
+
+/* About Story Card for Logo Positioning */
 .about-story-card {
     text-align: left;
     display: flex;
@@ -531,20 +535,8 @@ p, li {
 }
 
 .story-logo {
-    margin: 0 auto; /* Center logo in mobile view */
-    flex-shrink: 0; /* Prevent logo from shrinking */
-}
-
-@media (min-width: 768px) {
-    .about-story-card {
-        flex-wrap: nowrap; /* Prevent wrapping in desktop */
-    }
-    .story-logo {
-        margin: 0; /* Reset margin for desktop */
-        order: 2; /* Place logo after story-text */
-        text-align: right; /* Align logo to the right */
-        max-width: 150px; /* Match logo image max-width */
-    }
+    margin: 0 auto;
+    flex-shrink: 0;
 }
 
 .jk-logo {
@@ -558,19 +550,6 @@ p, li {
 .jk-logo:hover {
     transform: scale(1.05);
     box-shadow: 0 6px 12px rgba(230, 91, 80, 0.4);
-}
-
-.about-card.visible {
-    opacity: 1;
-    transform: translateX(0);
-}
-
-.about-card:hover {
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
-}
-
-.about-card p {
-    overflow-wrap: break-word;
 }
 
 /* Strength Card Styles with Animation */
@@ -587,17 +566,22 @@ p, li {
     flex-direction: column;
     justify-content: center;
     overflow: hidden;
-    opacity: 0;
-    transform: translateY(50px);
+    opacity: 1;
+    transform: none;
     position: relative;
     width: 100%;
-    max-width: 100%; /* Prevent overflow due to box-shadow and border */
-    box-sizing: border-box; /* Ensure padding and border are included in width */
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.strength-card.not-visible {
+    opacity: 0;
+    transform: translateY(50px);
 }
 
 .strength-card.visible {
     opacity: 1;
-    transform: translateY(0);
+    transform: none;
 }
 
 .strength-card:hover {
@@ -654,10 +638,10 @@ p, li {
 
 /* Future Section Specific Styles */
 #future .row {
-    margin-left: 0; /* Remove Bootstrap's negative margin */
-    margin-right: 0; /* Remove Bootstrap's negative margin */
+    margin-left: 0;
+    margin-right: 0;
     width: 100%;
-    overflow-x: hidden; /* Ensure no overflow */
+    overflow: hidden;
 }
 
 /* Popup Modal Styles */
@@ -688,6 +672,18 @@ p, li {
 .text-yellow { color: #FFFF00; }
 .text-gold { color: #FFD700; }
 .text-super-whites { color: #FFFFFF; }
+
+@media (min-width: 768px) {
+    .about-story-card {
+        flex-wrap: nowrap;
+    }
+    .story-logo {
+        margin: 0;
+        order: 2;
+        text-align: right;
+        max-width: 150px;
+    }
+}
 
 @media (max-width: 576px) {
     .navbar-logo { height: 30px; }
@@ -722,14 +718,17 @@ p, li {
         padding: 1rem;
         transform: translateX(-50px);
     }
+    .about-card.visible {
+        transform: translateX(0);
+    }
     .strength-card {
         padding: 1rem;
         height: 220px;
-        opacity: 1 !important; /* Ensure cards are fully visible */
-        transform: none !important; /* Remove any transform */
-        transition: none !important; /* Disable transitions */
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
     }
-    .strength-card.visible {
+    .strength-card.not-visible, .strength-card.visible {
         opacity: 1 !important;
         transform: none !important;
     }
@@ -754,6 +753,7 @@ p, li {
         max-width: 100%;
     }
     .call-icon {
+        display: flex;
         bottom: 10px;
         right: 10px;
         width: 40px;
@@ -780,14 +780,14 @@ p, li {
         gap: 0.5rem;
     }
     .contact-info div {
-        white-space: normal; /* Allow wrapping */
-        overflow-wrap: break-word; /* Ensure long text wraps */
-        max-width: 100%; /* Prevent overflow */
+        white-space: normal;
+        overflow-wrap: break-word;
+        max-width: 100%;
     }
     .contact-info a {
-        display: inline-block; /* Allow wrapping */
-        white-space: normal; /* Allow email links to wrap */
-        word-break: break-all; /* Break long email addresses */
+        display: inline-block;
+        white-space: normal;
+        word-break: break-all;
     }
     .tagline {
         order: 1;
@@ -802,15 +802,14 @@ p, li {
     .hide-tagline-desktop {
         display: none;
     }
-    /* Fix for Future Section on Mobile */
     #future .row {
-        margin-left: 0; /* Remove negative margin */
-        margin-right: 0; /* Remove negative margin */
+        margin-left: 0;
+        margin-right: 0;
         width: 100%;
-        overflow-x: hidden; /* Ensure no overflow */
+        overflow: hidden;
     }
     .bg-parallax {
-        background-attachment: scroll; /* Disable fixed background on mobile to avoid rendering issues */
+        background-attachment: scroll;
     }
 }
 
