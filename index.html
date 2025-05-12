@@ -675,6 +675,27 @@
                 aboutObserver.observe(card);
             });
         });
+
+        document.addEventListener('DOMContentLoaded', () => {
+    // Select all nav links within the navbar
+    const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+    // Get the navbar collapse element
+    const navbarCollapse = document.querySelector('.navbar-collapse');
+
+    // Add click event listener to each nav link
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            // Check if navbar collapse is shown
+            if (navbarCollapse.classList.contains('show')) {
+                // Use Bootstrap's Collapse API to hide the navbar
+                const bsCollapse = new bootstrap.Collapse(navbarCollapse, {
+                    toggle: false
+                });
+                bsCollapse.hide();
+            }
+        });
+    });
+});
     </script>
 </body>
 </html>
