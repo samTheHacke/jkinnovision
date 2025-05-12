@@ -620,6 +620,7 @@ p, li {
 #future .strength-card .service-icon {
     font-size: 2.5rem; /* Increased from ~2rem (fa-2x) */
     margin-bottom: 2.5rem !important; /* Increased gap for icon-to-card-title, overrides mb-3 */
+    margin-top: 1rem;
 }
 
 /* Reset card title top margin to isolate gap to icon's margin-bottom */
