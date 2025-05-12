@@ -568,10 +568,10 @@ p, li {
     padding: 1.5rem;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.5s ease;
-    height: 260px; /* Increased from 250px to accommodate larger gap */
+    height: 260px; /* Increased to accommodate larger gap */
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start; /* Changed from center to top-align content */
     overflow: hidden;
     opacity: 1;
     transform: none;
@@ -605,7 +605,7 @@ p, li {
     height: 260px; /* Increased from 250px */
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start; /* Changed from center to top-align content */
     overflow: hidden;
     opacity: 1;
     transform: none;
