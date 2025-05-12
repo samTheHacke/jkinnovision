@@ -571,7 +571,7 @@ p, li {
     height: 260px; /* Increased to accommodate larger gap */
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Changed from center to top-align content */
+    justify-content: flex-start; /* Top-align content */
     overflow: hidden;
     opacity: 1;
     transform: none;
@@ -605,7 +605,7 @@ p, li {
     height: 260px; /* Increased from 250px */
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Changed from center to top-align content */
+    justify-content: flex-start; /* Top-align content */
     overflow: hidden;
     opacity: 1;
     transform: none;
@@ -872,22 +872,30 @@ p, li {
         width: 100%;
     }
     .contact-info {
-        text-align: center;
+        /* text-align: center; */
         margin-top: 0.5rem;
         width: 100%;
         display: flex;
         flex-direction: column;
-        gap: 0.5rem;
+        gap: 0.5rem; /* Vertical gap between phone and email divs */
     }
     .contact-info div {
         white-space: normal;
         overflow-wrap: break-word;
         max-width: 100%;
+        line-height: 1.4; /* Reduced to minimize vertical spacing */
     }
     .contact-info a {
         display: inline-block;
         white-space: normal;
         word-break: break-all;
+        margin-left: 0.25rem; /* Minimal spacing after icon */
+        margin-right: 0; /* Remove any right margin */
+    }
+    .contact-info i {
+        display: inline;
+        margin: 0; /* Remove any default margins */
+        vertical-align: middle; /* Align icon with text */
     }
     .tagline {
         order: 1;
