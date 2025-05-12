@@ -491,6 +491,11 @@ p, li {
     row-gap: 1.5rem; /* Add gap between rows */
 }
 
+/* Ensure consistent background for Services */
+#services {
+    background: #F5F5F5;
+}
+
 /* About Card Styles with Animation */
 .about-card {
     background: #FFFFFF;
@@ -585,6 +590,30 @@ p, li {
 .strength-card.visible {
     opacity: 1;
     transform: none;
+}
+
+/* Explicitly ensure identical card styles for Services and Future */
+#services .strength-card,
+#future .strength-card {
+    background: #F0F0F0;
+    border: 1px solid #E0E0E0;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.5s ease;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    opacity: 1;
+    transform: none;
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 1.5rem;
 }
 
 /* Card Animations for Strengths, Services, and Future Sections */
@@ -762,6 +791,15 @@ p, li {
         transform: none !important;
         transition: none !important;
         margin-bottom: 1rem; /* Reduced for mobile */
+    }
+    #services .strength-card,
+    #future .strength-card {
+        padding: 1rem;
+        height: 220px;
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+        margin-bottom: 1rem;
     }
     .strength-card.not-visible, .strength-card.visible {
         opacity: 1 !important;
