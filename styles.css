@@ -479,7 +479,7 @@ p, li {
 /* Prevent overflow in sections with animations */
 #strengths, #services, #future, #testimonials {
     overflow: hidden;
-    padding-bottom: 2rem; /* Add padding to ensure space below cards */
+    padding-bottom: 2rem;
 }
 
 #strengths .row, #services .row, #future .row, #testimonials .row {
@@ -488,7 +488,7 @@ p, li {
     margin-right: 0;
     padding-left: 15px;
     padding-right: 15px;
-    row-gap: 1rem; /* Reduced gap between rows */
+    row-gap: 1rem;
 }
 
 /* Ensure consistent background for Services */
@@ -568,10 +568,10 @@ p, li {
     padding: 1.5rem;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.5s ease;
-    height: 260px; /* Increased to accommodate larger gap */
+    height: 260px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Top-align content */
+    justify-content: flex-start;
     overflow: hidden;
     opacity: 1;
     transform: none;
@@ -579,7 +579,7 @@ p, li {
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
-    margin-bottom: 1.5rem; /* Add margin to ensure spacing */
+    margin-bottom: 1.5rem;
 }
 
 .strength-card.not-visible {
@@ -602,10 +602,10 @@ p, li {
     padding: 1.5rem;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.5s ease;
-    height: 260px; /* Increased from 250px */
+    height: 260px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Top-align content */
+    justify-content: flex-start;
     overflow: hidden;
     opacity: 1;
     transform: none;
@@ -618,17 +618,17 @@ p, li {
 
 /* Larger icons and increased gap for Future section */
 #future .strength-card .service-icon {
-    font-size: 2.5rem; /* Increased from ~2rem (fa-2x) */
-    margin-bottom: 2.5rem !important; /* Increased gap for icon-to-card-title, overrides mb-3 */
+    font-size: 2.5rem;
+    margin-bottom: 2.5rem !important;
     margin-top: 1rem;
 }
 
-/* Reset card title top margin to isolate gap to icon's margin-bottom */
+/* Reset card title top margin */
 #future .strength-card h4 {
-    margin-top: 0; /* Remove default h4 margin-top to ensure gap is controlled by icon */
+    margin-top: 0;
 }
 
-/* Card Animations for Strengths, Services, and Future Sections */
+/* Card Animations */
 #strengths .strength-card.not-visible,
 #services .strength-card.not-visible,
 #future .strength-card.not-visible {
@@ -645,8 +645,8 @@ p, li {
 #strengths .strength-card:hover,
 #services .strength-card:hover,
 #future .strength-card:hover {
-    transform: translateY(-5px) scale(1.03); /* Reduced scale for less clutter */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 0 8px rgba(255, 111, 97, 0.3); /* Softer shadow */
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 0 8px rgba(255, 111, 97, 0.3);
 }
 
 @keyframes cardPopIn {
@@ -748,7 +748,7 @@ p, li {
 .text-gold { color: #FFD700; }
 .text-super-whites { color: #FFFFFF; }
 
-.breadfix{margin-inline-end: auto;}
+.breadfix { margin-inline-end: auto; }
 
 @media (min-width: 768px) {
     .about-story-card {
@@ -800,24 +800,43 @@ p, li {
     }
     .strength-card {
         padding: 1rem;
-        height: 230px; /* Increased from 220px for mobile */
-        opacity: 1 !important;
-        transform: none !important;
-        transition: none !important;
-        margin-bottom: 1rem; /* Reduced for mobile */
-    }
-    #services .strength-card,
-    #future .strength-card {
-        padding: 1rem;
-        height: 230px; /* Increased from 220px */
+        height: auto;
+        min-height: 200px;
         opacity: 1 !important;
         transform: none !important;
         transition: none !important;
         margin-bottom: 1rem;
+        overflow: visible;
     }
-    .strength-card.not-visible, .strength-card.visible {
+    #services .strength-card,
+    #future .strength-card {
+        padding: 1rem;
+        height: auto;
+        min-height: 200px;
         opacity: 1 !important;
         transform: none !important;
+        transition: none !important;
+        margin-bottom: 1rem;
+        overflow: visible;
+    }
+    .strength-card h4 {
+        font-size: clamp(1rem, 4vw, 1.2rem);
+        margin-bottom: 0.5rem;
+    }
+    .strength-card p {
+        font-size: clamp(0.8rem, 3.5vw, 0.9rem);
+        line-height: 1.4;
+    }
+    .strength-card .service-icon {
+        font-size: clamp(1.5rem, 6vw, 1.8rem);
+        margin-bottom: 1rem !important;
+    }
+    #future .strength-card .service-icon {
+        font-size: clamp(1.5rem, 6vw, 1.8rem);
+        margin-bottom: 1.5rem !important;
+    }
+    #future .strength-card h4 {
+        margin-top: 0;
     }
     #strengths .strength-card:hover,
     #services .strength-card:hover,
@@ -825,15 +844,10 @@ p, li {
         transform: none !important;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
     }
-    #strengths .row, #services .row, #future .row {
-        row-gap: 0.75rem; /* Further reduced for mobile */
-    }
-    #future .strength-card .service-icon {
-        font-size: 2rem; /* Slightly smaller for mobile */
-        margin-bottom: 1.75rem !important; /* Increased gap for icon-to-card-title */
-    }
-    #future .strength-card h4 {
-        margin-top: 0; /* Remove default h4 margin-top */
+    #strengths .row,
+    #services .row,
+    #future .row {
+        row-gap: 0.75rem;
     }
     #about {
         padding: 2rem 0;
@@ -875,30 +889,29 @@ p, li {
         width: 100%;
     }
     .contact-info {
-        /* text-align: center; */
         margin-top: 0.5rem;
         width: 100%;
         display: flex;
         flex-direction: column;
-        gap: 0.5rem; /* Vertical gap between phone and email divs */
+        gap: 0.5rem;
     }
     .contact-info div {
         white-space: normal;
         overflow-wrap: break-word;
         max-width: 100%;
-        line-height: 1.4; /* Reduced to minimize vertical spacing */
+        line-height: 1.4;
     }
     .contact-info a {
         display: inline-block;
         white-space: normal;
         word-break: break-all;
-        margin-left: 0.25rem; /* Minimal spacing after icon */
-        margin-right: 0; /* Remove any right margin */
+        margin-left: 0.25rem;
+        margin-right: 0;
     }
     .contact-info i {
         display: inline;
-        margin: 0; /* Remove any default margins */
-        vertical-align: middle; /* Align icon with text */
+        margin: 0;
+        vertical-align: middle;
     }
     .tagline {
         order: 1;
@@ -924,6 +937,22 @@ p, li {
     }
     #strengths, #services, #future {
         padding-bottom: 1.5rem;
+    }
+}
+
+/* Android-specific adjustments for smaller screens */
+@media (max-width: 576px) and (min-resolution: 1dppx) {
+    .strength-card {
+        padding: 0.75rem;
+    }
+    .strength-card h4 {
+        font-size: clamp(0.9rem, 3.8vw, 1.1rem);
+    }
+    .strength-card p {
+        font-size: clamp(0.7rem, 3.2vw, 0.85rem);
+    }
+    .strength-card .service-icon {
+        font-size: clamp(1.3rem, 5.5vw, 1.6rem);
     }
 }
 
