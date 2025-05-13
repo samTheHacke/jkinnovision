@@ -579,24 +579,24 @@
             document.getElementById('recommendation-image-main').style.zIndex = 10;
         });
 
-        const cameraIcon = document.getElementById('camera-icon');
-        window.addEventListener('scroll', () => {
-            const scrollPosition = window.scrollY;
-            const windowHeight = window.innerHeight;
-            const maxScroll = document.documentElement.scrollHeight - windowHeight;
-            const progress = Math.min(1, scrollPosition / maxScroll);
+        // const cameraIcon = document.getElementById('camera-icon');
+        // window.addEventListener('scroll', () => {
+        //     const scrollPosition = window.scrollY;
+        //     const windowHeight = window.innerHeight;
+        //     const maxScroll = document.documentElement.scrollHeight - windowHeight;
+        //     const progress = Math.min(1, scrollPosition / maxScroll);
 
-            const initialSize = 3;
-            const finalSize = 2;
-            const fontSize = initialSize + (finalSize - initialSize) * progress;
-            cameraIcon.style.fontSize = `${fontSize}rem`;
+        //     const initialSize = 3;
+        //     const finalSize = 2;
+        //     const fontSize = initialSize + (finalSize - initialSize) * progress;
+        //     cameraIcon.style.fontSize = `${fontSize}rem`;
 
-            cameraIcon.style.position = 'fixed';
-            cameraIcon.style.top = '4px';
-            cameraIcon.style.left = '3px';
-            cameraIcon.style.zIndex = 1000;
-            cameraIcon.style.opacity = 1 - (progress * 0.3);
-        });
+        //     cameraIcon.style.position = 'fixed';
+        //     cameraIcon.style.top = '4px';
+        //     cameraIcon.style.left = '3px';
+        //     cameraIcon.style.zIndex = 1000;
+        //     cameraIcon.style.opacity = 1 - (progress * 0.3);
+        // });
 
         // Security slider animation
         document.addEventListener('DOMContentLoaded', () => {
