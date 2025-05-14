@@ -187,12 +187,12 @@ section, .banner, footer {
     }
 }
 
-/* Contact Card Styles (Existing, with additions) */
+/* Contact Card Styles */
 .contact-card {
     background: #FFFFFF;
     border: 1px solid #E0E0E0;
     border-radius: 10px;
-    box-shadow: 0 4px-12px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     padding: 1.5rem;
     margin: 0 auto;
     text-align: center;
@@ -240,18 +240,21 @@ section, .banner, footer {
     border: 1px solid #dee2e6;
 }
 
-/* New styles for contact information */
+/* Updated styles for contact information */
 .contact-card .bg-light p {
     font-size: 0.9rem;
     white-space: nowrap; /* Keep text in a single line by default */
     overflow: hidden;
     text-overflow: ellipsis; /* Add ellipsis if text overflows */
+    margin: 0; /* Remove default margin for tighter spacing */
 }
 
 .contact-card .bg-light a {
     color: #000080;
     text-decoration: none;
     margin: 0 0.25rem;
+    white-space: nowrap; /* Prevent phone numbers and emails from breaking */
+    display: inline; /* Ensure inline display */
 }
 
 .contact-card .bg-light a:hover {
@@ -268,7 +271,7 @@ section, .banner, footer {
         margin-top: 1.5rem;
     }
 
-    /* Allow wrapping for smaller screens */
+    /* Allow wrapping for smaller screens, but keep phone numbers/emails intact */
     .contact-card .bg-light p {
         white-space: normal; /* Allow text to wrap */
         font-size: clamp(0.8rem, 3.5vw, 0.85rem); /* Dynamic font size */
@@ -278,12 +281,17 @@ section, .banner, footer {
 
     .contact-card .bg-light a {
         margin: 0 0.15rem; /* Tighter spacing on mobile */
+        white-space: nowrap; /* Ensure phone numbers and emails don't break */
     }
 }
 
 @media (max-width: 576px) and (min-resolution: 1dppx) {
     .contact-card .bg-light p {
         font-size: clamp(0.75rem, 3.2vw, 0.8rem); /* Slightly smaller for Android */
+    }
+
+    .contact-card .bg-light a {
+        font-size: clamp(0.75rem, 3.2vw, 0.8rem); /* Match p font size */
     }
 }
 
