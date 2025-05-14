@@ -246,7 +246,7 @@ section, .banner, footer {
     white-space: nowrap; /* Keep text in a single line by default */
     overflow: hidden;
     text-overflow: ellipsis; /* Add ellipsis if text overflows */
-    margin: 0; /* Remove default margin for tighter spacing */
+    margin: 0; /* Remove default margin */
 }
 
 .contact-card .bg-light a {
@@ -262,6 +262,19 @@ section, .banner, footer {
     text-decoration: underline;
 }
 
+.contact-card .bg-light .d-flex {
+    align-items: flex-start; /* Align to top to reduce vertical gap */
+    gap: 0.3rem; /* Reduced gap between icon and text */
+}
+
+.contact-card .bg-light .fa-phone,
+.contact-card .bg-light .fa-envelope {
+    margin-right: 0.3rem; /* Tighter icon margin */
+    font-size: 0.95rem; /* Smaller icon size */
+    flex-shrink: 0; /* Prevent icon from shrinking */
+    color: #000080; /* Match text color */
+}
+
 @media (max-width: 768px) {
     .contact-card {
         padding: 1rem;
@@ -271,27 +284,51 @@ section, .banner, footer {
         margin-top: 1.5rem;
     }
 
-    /* Allow wrapping for smaller screens, but keep phone numbers/emails intact */
+    /* Allow wrapping for smaller screens */
     .contact-card .bg-light p {
         white-space: normal; /* Allow text to wrap */
         font-size: clamp(0.8rem, 3.5vw, 0.85rem); /* Dynamic font size */
-        line-height: 1.4; /* Tighten line height */
+        line-height: 1.2; /* Tighter line height */
         text-overflow: clip; /* Remove ellipsis for wrapped text */
+        margin: 0; /* No extra margin */
     }
 
     .contact-card .bg-light a {
-        margin: 0 0.15rem; /* Tighter spacing on mobile */
-        white-space: nowrap; /* Ensure phone numbers and emails don't break */
+        margin: 0 0.1rem; /* Tighter spacing on mobile */
+        white-space: nowrap; /* Keep phone numbers and emails intact */
+        font-size: clamp(0.8rem, 3.5vw, 0.85rem); /* Match p font size */
+    }
+
+    .contact-card .bg-light .d-flex {
+        gap: 0.15rem; /* Minimal gap on mobile */
+    }
+
+    .contact-card .bg-light .fa-phone,
+    .contact-card .bg-light .fa-envelope {
+        margin-right: 0.15rem; /* Very tight icon margin on mobile */
+        font-size: 0.85rem; /* Smaller icon */
     }
 }
 
 @media (max-width: 576px) and (min-resolution: 1dppx) {
     .contact-card .bg-light p {
-        font-size: clamp(0.75rem, 3.2vw, 0.8rem); /* Slightly smaller for Android */
+        font-size: clamp(0.75rem, 3.2vw, 0.8rem); /* Smaller for Android */
+        line-height: 1.2; /* Consistent tight line height */
     }
 
     .contact-card .bg-light a {
         font-size: clamp(0.75rem, 3.2vw, 0.8rem); /* Match p font size */
+        margin: 0 0.05rem; /* Minimal spacing for Android */
+    }
+
+    .contact-card .bg-light .d-flex {
+        gap: 0.1rem; /* Minimal gap for small Android screens */
+    }
+
+    .contact-card .bg-light .fa-phone,
+    .contact-card .bg-light .fa-envelope {
+        margin-right: 0.1rem; /* Minimal icon margin */
+        font-size: 0.8rem; /* Smallest icon size for Android */
     }
 }
 
