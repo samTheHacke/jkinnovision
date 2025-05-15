@@ -94,7 +94,7 @@ section, .banner, footer {
 
 /* Navigation Bar Styles */
 .navbar {
-    background-color: #FFFFFF !important;
+    background-color: #81EFF4 !important;
     border-bottom: 1px solid;
     border-image: linear-gradient(to right, #000080, #1E90FF) 1;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -1035,6 +1035,101 @@ p, li {
     }
     .strength-card .service-icon {
         font-size: clamp(1.3rem, 5.5vw, 1.6rem);
+    }
+}
+
+
+/* Footer Styles */
+footer.bg-black {
+    background-color: #000000 !important;
+    color: #FFFFFF;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+footer p {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 0.9rem;
+}
+
+footer a {
+    color: #FFFFFF;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #1E90FF; /* Blue hover effect */
+}
+
+/* Social Media Footer Styles */
+.social-media-footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem; /* Space between social media items */
+}
+
+.social-media-footer .social-link {
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+    white-space: nowrap; /* Prevent icon and label from breaking */
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+}
+
+.social-media-footer i {
+    font-size: 1.2rem; /* Icon size */
+    margin-right: 0.3rem; /* Tight gap between icon and label */
+    transition: color 0.3s ease;
+}
+
+.social-media-footer .social-link:hover i {
+    color: #1E90FF; /* Match link hover color */
+}
+
+@media (max-width: 768px) {
+    footer.bg-black {
+        padding: 2rem 0;
+    }
+
+    footer p {
+        font-size: clamp(0.8rem, 3.5vw, 0.85rem);
+        line-height: 1.2;
+    }
+
+    .social-media-footer {
+        gap: 1rem; /* Tighter gap on mobile */
+    }
+
+    .social-media-footer .social-link {
+        font-size: clamp(0.8rem, 3.5vw, 0.85rem);
+    }
+
+    .social-media-footer i {
+        font-size: 1rem; /* Smaller icon */
+        margin-right: 0.15rem; /* Tighter gap */
+    }
+}
+
+@media (max-width: 576px) and (min-resolution: 1dppx) {
+    footer p {
+        font-size: clamp(0.75rem, 3.2vw, 0.8rem);
+    }
+
+    .social-media-footer {
+        gap: 0.75rem; /* Minimal gap for Android */
+    }
+
+    .social-media-footer .social-link {
+        font-size: clamp(0.75rem, 3.2vw, 0.8rem);
+    }
+
+    .social-media-footer i {
+        font-size: 0.9rem; /* Smallest icon for Android */
+        margin-right: 0.1rem; /* Minimal gap */
     }
 }
 
