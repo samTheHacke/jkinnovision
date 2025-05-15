@@ -243,9 +243,6 @@ section, .banner, footer {
 /* Updated styles for contact information */
 .contact-card .bg-light p {
     font-size: 0.9rem;
-    white-space: nowrap; /* Keep text in a single line by default */
-    overflow: hidden;
-    text-overflow: ellipsis; /* Add ellipsis if text overflows */
     margin: 0; /* Remove default margin */
 }
 
@@ -254,7 +251,7 @@ section, .banner, footer {
     text-decoration: none;
     margin: 0 0.25rem;
     white-space: nowrap; /* Prevent phone numbers and emails from breaking */
-    display: inline; /* Ensure inline display */
+    display: inline;
 }
 
 .contact-card .bg-light a:hover {
@@ -262,15 +259,27 @@ section, .banner, footer {
     text-decoration: underline;
 }
 
-.contact-card .bg-light .d-flex {
-    align-items: flex-start; /* Align to top to reduce vertical gap */
-    gap: 0.3rem; /* Reduced gap between icon and text */
+.contact-card .bg-light .contact-item {
+    align-items: flex-start; /* Align to top */
+    gap: 0.2rem; /* Minimal gap between icon and text */
+}
+
+.contact-card .bg-light .contact-text {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap; /* Allow wrapping after "Call us:" */
+}
+
+.contact-card .bg-light .contact-text p {
+    display: flex;
+    align-items: center;
+    white-space: nowrap; /* Keep "Call us:" with icon */
 }
 
 .contact-card .bg-light .fa-phone,
 .contact-card .bg-light .fa-envelope {
-    margin-right: 0.3rem; /* Tighter icon margin */
-    font-size: 0.95rem; /* Smaller icon size */
+    margin-right: 0.2rem; /* Tight icon margin */
+    font-size: 0.9rem; /* Smaller icon size */
     flex-shrink: 0; /* Prevent icon from shrinking */
     color: #000080; /* Match text color */
 }
@@ -284,51 +293,48 @@ section, .banner, footer {
         margin-top: 1.5rem;
     }
 
-    /* Allow wrapping for smaller screens */
     .contact-card .bg-light p {
         white-space: normal; /* Allow text to wrap */
-        font-size: clamp(0.8rem, 3.5vw, 0.85rem); /* Dynamic font size */
-        line-height: 1.2; /* Tighter line height */
-        text-overflow: clip; /* Remove ellipsis for wrapped text */
-        margin: 0; /* No extra margin */
+        font-size: clamp(0.8rem, 3.5vw, 0.85rem);
+        line-height: 1.2;
     }
 
     .contact-card .bg-light a {
-        margin: 0 0.1rem; /* Tighter spacing on mobile */
-        white-space: nowrap; /* Keep phone numbers and emails intact */
-        font-size: clamp(0.8rem, 3.5vw, 0.85rem); /* Match p font size */
+        margin: 0 0.1rem;
+        white-space: nowrap;
+        font-size: clamp(0.8rem, 3.5vw, 0.85rem);
     }
 
-    .contact-card .bg-light .d-flex {
-        gap: 0.15rem; /* Minimal gap on mobile */
+    .contact-card .bg-light .contact-item {
+        gap: 0.1rem; /* Minimal gap on mobile */
     }
 
     .contact-card .bg-light .fa-phone,
     .contact-card .bg-light .fa-envelope {
-        margin-right: 0.15rem; /* Very tight icon margin on mobile */
-        font-size: 0.85rem; /* Smaller icon */
+        margin-right: 0.1rem; /* Very tight icon margin */
+        font-size: 0.85rem;
     }
 }
 
 @media (max-width: 576px) and (min-resolution: 1dppx) {
     .contact-card .bg-light p {
-        font-size: clamp(0.75rem, 3.2vw, 0.8rem); /* Smaller for Android */
-        line-height: 1.2; /* Consistent tight line height */
+        font-size: clamp(0.75rem, 3.2vw, 0.8rem);
+        line-height: 1.2;
     }
 
     .contact-card .bg-light a {
-        font-size: clamp(0.75rem, 3.2vw, 0.8rem); /* Match p font size */
-        margin: 0 0.05rem; /* Minimal spacing for Android */
+        font-size: clamp(0.75rem, 3.2vw, 0.8rem);
+        margin: 0 0.05rem;
     }
 
-    .contact-card .bg-light .d-flex {
-        gap: 0.1rem; /* Minimal gap for small Android screens */
+    .contact-card .bg-light .contact-item {
+        gap: 0.05rem; /* Minimal gap for Android */
     }
 
     .contact-card .bg-light .fa-phone,
     .contact-card .bg-light .fa-envelope {
-        margin-right: 0.1rem; /* Minimal icon margin */
-        font-size: 0.8rem; /* Smallest icon size for Android */
+        margin-right: 0.05rem; /* Minimal icon margin */
+        font-size: 0.8rem;
     }
 }
 
