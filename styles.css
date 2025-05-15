@@ -187,93 +187,37 @@ section, .banner, footer {
     }
 }
 
-/* Contact Card Styles */
-.contact-card {
-    background: #FFFFFF;
-    border: 1px solid #E0E0E0;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    padding: 1.5rem;
-    margin: 0 auto;
-    text-align: center;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.contact-card .form-control {
-    border: 2px solid #000080;
-    border-radius: 5px;
-    height: 38px;
-    font-size: 0.9rem;
-    padding: 0.5rem;
-    transition: border-color 0.3s ease;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.contact-card .form-control:focus {
-    border-color: #1E90FF;
-    box-shadow: 0 0 5px rgba(30, 144, 255, 0.3);
-    outline: none;
-}
-
-.contact-card textarea.form-control {
-    height: auto;
-    min-height: 100px;
-}
-
-.contact-card .btn-coral {
-    margin-top: 0.75rem;
-    padding: 0.5rem;
-    font-size: 0.9rem;
-    width: 100%;
-}
-
-#contactForm {
-    border: 2px solid #000080 !important;
-    border-radius: 10px !important;
-    box-shadow: 0 2px 8px rgba(0, 0, 128, 0.1);
-}
-
-.bg-light {
-    background-color: #f8f9fa !important;
-    border: 1px solid #dee2e6;
-}
-
 /* Updated styles for contact information */
-.contact-card .bg-light p {
-    font-size: 0.9rem;
-    margin: 0; /* Remove default margin */
+.contact-card .bg-light .contact-text {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping of content */
+    align-items: center;
+    width: 100%; /* Ensure it takes full available width */
 }
 
-.contact-card .bg-light a {
+.contact-card .bg-light .contact-text p {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping within the paragraph */
+    align-items: center;
+    margin: 0; /* Remove default margin */
+    width: 100%; /* Ensure full width usage */
+    font-size: 0.9rem;
+}
+
+.contact-card .bg-light .contact-text a {
     color: #000080;
     text-decoration: none;
-    margin: 0 0.25rem;
-    white-space: nowrap; /* Prevent phone numbers and emails from breaking */
-    display: inline;
-}
-
-.contact-card .bg-light a:hover {
-    color: #000000;
-    text-decoration: underline;
+    margin: 0 0.25rem; /* Small margin between links */
+    white-space: normal; /* Allow wrapping */
+    overflow-wrap: break-word; /* Break long words/emails */
+    word-break: break-all; /* Ensure long emails break at any character */
+    display: inline; /* Keep inline behavior */
 }
 
 .contact-card .bg-light .contact-item {
     align-items: flex-start; /* Align to top */
     gap: 0.2rem; /* Minimal gap between icon and text */
-}
-
-.contact-card .bg-light .contact-text {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap; /* Allow wrapping after "Call us:" */
-}
-
-.contact-card .bg-light .contact-text p {
-    display: flex;
-    align-items: center;
-    white-space: nowrap; /* Keep "Call us:" with icon */
+    width: 100%; /* Ensure full width */
 }
 
 .contact-card .bg-light .fa-phone,
@@ -284,25 +228,20 @@ section, .banner, footer {
     color: #000080; /* Match text color */
 }
 
+/* Mobile-specific adjustments */
 @media (max-width: 768px) {
-    .contact-card {
-        padding: 1rem;
-    }
-    
-    .contact-card .col-md-5 {
-        margin-top: 1.5rem;
-    }
-
-    .contact-card .bg-light p {
-        white-space: normal; /* Allow text to wrap */
+    .contact-card .bg-light .contact-text p {
         font-size: clamp(0.8rem, 3.5vw, 0.85rem);
         line-height: 1.2;
+        flex-wrap: wrap; /* Ensure wrapping */
     }
 
-    .contact-card .bg-light a {
-        margin: 0 0.1rem;
-        white-space: nowrap;
+    .contact-card .bg-light .contact-text a {
         font-size: clamp(0.8rem, 3.5vw, 0.85rem);
+        margin: 0 0.1rem;
+        white-space: normal; /* Allow wrapping */
+        overflow-wrap: break-word; /* Break long words/emails */
+        word-break: break-all; /* Break at any character for long emails */
     }
 
     .contact-card .bg-light .contact-item {
@@ -317,14 +256,17 @@ section, .banner, footer {
 }
 
 @media (max-width: 576px) and (min-resolution: 1dppx) {
-    .contact-card .bg-light p {
+    .contact-card .bg-light .contact-text p {
         font-size: clamp(0.75rem, 3.2vw, 0.8rem);
         line-height: 1.2;
     }
 
-    .contact-card .bg-light a {
+    .contact-card .bg-light .contact-text a {
         font-size: clamp(0.75rem, 3.2vw, 0.8rem);
         margin: 0 0.05rem;
+        white-space: normal;
+        overflow-wrap: break-word;
+        word-break: break-all;
     }
 
     .contact-card .bg-light .contact-item {
