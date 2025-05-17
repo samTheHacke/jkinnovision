@@ -285,6 +285,45 @@ section, .banner, footer {
     text-align: center; /* Keep center alignment as fallback */
 }
 
+/* Contact Form Input Styles */
+#contactForm .form-control {
+    border: 2px solid #000080; /* Navy blue border to match theme */
+    border-radius: 8px; /* Slightly rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: all 0.3s ease; /* Smooth transition for focus/hover effects */
+    padding: 10px; /* Comfortable padding */
+    background-color: #FFFFFF; /* Clean white background */
+}
+
+#contactForm .form-control:focus {
+    border-color: #FF6F61; /* Coral color on focus to highlight */
+    box-shadow: 0 0 8px rgba(255, 111, 97, 0.4); /* Glow effect on focus */
+    outline: none; /* Remove default browser outline */
+    transform: scale(1.02); /* Slight scale-up for emphasis */
+}
+
+#contactForm .form-control:hover {
+    border-color: #1E90FF; /* Blue hover effect for interactivity */
+    box-shadow: 0 2px 6px rgba(30, 144, 255, 0.3); /* Slight shadow on hover */
+}
+
+/* Ensure textarea matches input styles */
+#contactForm textarea.form-control {
+    resize: vertical; /* Allow vertical resize only */
+    min-height: 100px; /* Minimum height for textarea */
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+    #contactForm .form-control {
+        padding: 8px; /* Slightly less padding on mobile */
+        border-width: 1.5px; /* Thinner border for smaller screens */
+    }
+    #contactForm .form-control:focus {
+        transform: scale(1.01); /* Reduced scale effect on mobile */
+    }
+}
+
 @media (min-width: 768px) {
     #contact .contact-card h2 {
         /* Match the form's width and padding */
