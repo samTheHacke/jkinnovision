@@ -280,6 +280,21 @@ section, .banner, footer {
     }
 }
 
+/* Contact Section */
+#contact .contact-card h2 {
+    text-align: center; /* Keep center alignment as fallback */
+}
+
+@media (min-width: 768px) {
+    #contact .contact-card h2 {
+        /* Match the form's width and padding */
+        max-width: 540px; /* Matches the form's approximate width in col-md-7 */
+        margin-left: 100px;
+        margin-right: auto;
+        text-align: center; /* Center within the form's width */
+    }
+}
+
 /* Call Icon Styles */
 .call-icon {
     position: fixed;
